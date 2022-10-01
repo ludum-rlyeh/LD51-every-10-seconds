@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=2]
+[gd_scene load_steps=28 format=2]
 
 [ext_resource path="res://CoffeeMachine/CoffeeMachine.gd" type="Script" id=1]
 [ext_resource path="res://CoffeeMachine/CoffeeContainerFull.svg" type="Texture" id=2]
@@ -12,9 +12,14 @@
 [ext_resource path="res://Common/ProgressBar.tscn" type="PackedScene" id=10]
 [ext_resource path="res://CoffeeMachine/Teapot.gd" type="Script" id=11]
 [ext_resource path="res://CoffeeMachine/CoffeeContainer.gd" type="Script" id=12]
+[ext_resource path="res://Cup/CupOpened.svg" type="Texture" id=13]
+[ext_resource path="res://CoffeeMachine/CupOpened.gd" type="Script" id=14]
 
 [sub_resource type="RectangleShape2D" id=3]
 extents = Vector2( 116.5, 74 )
+
+[sub_resource type="RectangleShape2D" id=13]
+extents = Vector2( 98, 103 )
 
 [sub_resource type="RectangleShape2D" id=5]
 extents = Vector2( 116.5, 130 )
@@ -24,6 +29,9 @@ extents = Vector2( 135.75, 69.5 )
 
 [sub_resource type="RectangleShape2D" id=6]
 extents = Vector2( 99, 96 )
+
+[sub_resource type="RectangleShape2D" id=12]
+extents = Vector2( 60, 93 )
 
 [sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 183.5, 49.5 )
@@ -401,6 +409,7 @@ margin_bottom = 38.0
 flat = true
 
 [node name="CoffeeMachineArea2D" type="Area2D" parent="Machine/Coffee"]
+monitoring = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Machine/Coffee/CoffeeMachineArea2D"]
 position = Vector2( 550.5, 166 )
@@ -415,6 +424,17 @@ margin_bottom = 40.0
 
 [node name="Position2D" type="Position2D" parent="Machine/Coffee"]
 position = Vector2( 304, 108 )
+
+[node name="CoffeeMachineCupArea2D" type="Area2D" parent="Machine/Coffee"]
+position = Vector2( 514, 302 )
+monitoring = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Machine/Coffee/CoffeeMachineCupArea2D"]
+position = Vector2( 56, -41 )
+shape = SubResource( 13 )
+
+[node name="CupPosition2D" type="Position2D" parent="Machine/Coffee"]
+position = Vector2( 502, 222 )
 
 [node name="Milk" type="Node2D" parent="Machine"]
 
@@ -459,6 +479,7 @@ position = Vector2( -266, 183 )
 
 [node name="CoffeeSmasherArea2D" type="Area2D" parent="CoffeeSmasher"]
 position = Vector2( -5, 192 )
+monitoring = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CoffeeSmasher/CoffeeSmasherArea2D"]
 shape = SubResource( 1 )
@@ -472,6 +493,7 @@ texture_normal = ExtResource( 3 )
 
 [node name="MilkContainerArea2D" type="Area2D" parent="Milk"]
 position = Vector2( 106, 534 )
+monitoring = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Milk/MilkContainerArea2D"]
 position = Vector2( 89, 86 )
@@ -487,6 +509,20 @@ margin_top = 552.0
 margin_right = 364.0
 margin_bottom = 584.0
 
+[node name="CupOpened" type="TextureButton" parent="."]
+margin_left = 558.0
+margin_top = 372.0
+margin_right = 727.0
+margin_bottom = 607.0
+texture_normal = ExtResource( 13 )
+script = ExtResource( 14 )
+
+[node name="CupOpenedArea2D" type="Area2D" parent="CupOpened"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CupOpened/CupOpenedArea2D"]
+position = Vector2( 64, 83 )
+shape = SubResource( 12 )
+
 [node name="CoffeeContainer" type="TextureButton" parent="."]
 margin_left = -482.0
 margin_top = 408.0
@@ -497,6 +533,7 @@ texture_normal = ExtResource( 7 )
 script = ExtResource( 12 )
 
 [node name="Area2D" type="Area2D" parent="CoffeeContainer"]
+monitorable = false
 __meta__ = {
 "_edit_lock_": true
 }
@@ -523,6 +560,7 @@ script = ExtResource( 11 )
 
 [node name="Area2D" type="Area2D" parent="Teapot"]
 position = Vector2( 118, 104 )
+monitorable = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Teapot/Area2D"]
 position = Vector2( -1, -1 )
@@ -540,6 +578,10 @@ anims/RESET = SubResource( 8 )
 [connection signal="pressed" from="Machine/Coffee/Expresso" to="." method="_on_Expresso_pressed"]
 [connection signal="pressed" from="Machine/Coffee/Lungo" to="." method="_on_Lungo_pressed"]
 [connection signal="pressed" from="Milk" to="." method="_on_Milk_pressed"]
+[connection signal="button_down" from="CupOpened" to="." method="_on_CupOpened_button_down"]
+[connection signal="button_up" from="CupOpened" to="." method="_on_CupOpened_button_up"]
+[connection signal="area_entered" from="CupOpened/CupOpenedArea2D" to="." method="_on_CupOpened_area_entered"]
+[connection signal="area_exited" from="CupOpened/CupOpenedArea2D" to="." method="_on_CupOpened_area_exited"]
 [connection signal="button_down" from="CoffeeContainer" to="." method="_on_CoffeeContainer_button_down"]
 [connection signal="button_up" from="CoffeeContainer" to="." method="_on_CoffeeContainer_button_up"]
 [connection signal="area_entered" from="CoffeeContainer/Area2D" to="." method="_on_CoffeeContainer_area_entered"]
