@@ -1,0 +1,47 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Cup/CupButton.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Client/Client.tscn" type="PackedScene" id=2]
+[ext_resource path="res://CoffeeMachine.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Manager/Manager.tscn" type="PackedScene" id=4]
+
+[node name="CoffeeShop" type="Node2D"]
+
+[node name="CupButton" parent="." instance=ExtResource( 1 )]
+margin_left = -518.0
+margin_top = -246.0
+margin_right = -91.0
+margin_bottom = 417.0
+
+[node name="CupButton2" parent="." instance=ExtResource( 1 )]
+margin_left = -1516.0
+margin_top = -231.0
+margin_right = -1089.0
+margin_bottom = 432.0
+
+[node name="CupButton3" parent="." instance=ExtResource( 1 )]
+margin_left = -1012.0
+margin_top = -241.0
+margin_right = -585.0
+margin_bottom = 422.0
+
+[node name="Client" parent="." instance=ExtResource( 2 )]
+position = Vector2( -844, -1174 )
+
+[node name="Client2" parent="." instance=ExtResource( 2 )]
+position = Vector2( -1357, -1174 )
+
+[node name="Client3" parent="." instance=ExtResource( 2 )]
+position = Vector2( -288, -1153 )
+
+[node name="Client4" parent="." instance=ExtResource( 2 )]
+position = Vector2( 540, -384 )
+
+[node name="CoffeeMachine" parent="." instance=ExtResource( 3 )]
+
+[node name="Manager" parent="." instance=ExtResource( 4 )]
+position = Vector2( 1782, 211 )
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2( 509, -4 )
+current = true

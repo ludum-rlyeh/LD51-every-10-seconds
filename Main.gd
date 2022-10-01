@@ -12,9 +12,10 @@ func new_client():
 	var client_instance = _client_scene.instance()
 	add_child(client_instance)
 	var cup_button_instance = _cup_button_scene.instance()
-	cup_button_instance.connect("pressed", self, "on_cup_button_click", [client_instance.gm_name, client_instance.command])
+	cup_button_instance.connect("pressed", self, "on_cup_button_click", [cup_button_instance, client_instance.gm_name, client_instance.command])
 	add_child(cup_button_instance)
 
-func on_cup_button_click(gm_name, command):
+func on_cup_button_click(cup, gm_name, command):
 	$CupCommand.set_command(gm_name, command)
 	$CupCommand.visible = true
+	cup.in_preparation = true
