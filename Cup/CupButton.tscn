@@ -1,10 +1,10 @@
 [gd_scene load_steps=3 format=2]
 
-[ext_resource path="res://Cup/cup.svg" type="Texture" id=1]
+[ext_resource path="res://Cup/CupOpened.svg" type="Texture" id=1]
 [ext_resource path="res://Cup/CupButton.gd" type="Script" id=2]
 
 [node name="CupButton" type="TextureButton"]
-margin_right = 427.0
-margin_bottom = 663.0
+margin_right = 127.0
+margin_bottom = 176.0
 texture_normal = ExtResource( 1 )
 script = ExtResource( 2 )

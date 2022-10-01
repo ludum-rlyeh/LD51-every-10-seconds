@@ -1,62 +1,67 @@
 extends Control
 
 var _initial_position_coffee_container
-var _initial_position_teapot
+var _initial_position_milkpot
 var _initial_position_cup
 
 var _coffee_container_held = false
-var _teapot_held = false
+var _milkpot_held = false
 var _in_milk_area = false
 var _in_coffee_machine_milk_area = false
 var _in_coffee_smasher_area = false
 var _in_coffee_machine_coffee_area = false
 var _in_coffee_machine_cup_area = false
 var _cup_held = false
+var _is_milk_over_cup = false
 
 func _ready():
 	_initial_position_coffee_container = $CoffeeContainer.rect_global_position
-	_initial_position_teapot = $Teapot.rect_global_position
+	_initial_position_milkpot = $MilkPot.rect_global_position
 	_initial_position_cup = $CupOpened.rect_global_position
 
 func _process(delta: float) -> void:
 	if _coffee_container_held:
 		$CoffeeContainer.rect_global_position = self.get_global_mouse_position()
-	elif _teapot_held:
-		$Teapot.rect_global_position = self.get_global_mouse_position()
+	elif _milkpot_held:
+		$MilkPot.rect_global_position = self.get_global_mouse_position()
 	elif _cup_held:
 		$CupOpened.rect_global_position = self.get_global_mouse_position()
 		
-###### Teapot
+###### milkpot
 
-func _on_Teapot_button_up() -> void:
-	if $Teapot.locked:
+func _on_MilkPot_button_up() -> void:
+	if $MilkPot.locked:
 		return
-	_teapot_held = false
+	_milkpot_held = false
 	if _in_milk_area:
-		$Teapot.rect_global_position = $Milk/Position2D.global_position
+		$MilkPot.rect_global_position = $MilkMachine/Position2D.global_position
 	elif _in_coffee_machine_milk_area:
-		$Teapot.rect_global_position = $Machine/Milk/Position2D.global_position
+		$MilkPot.rect_global_position = $CoffeeMilkMachine/Milk/Position2D.global_position
+	elif _is_milk_over_cup:
+		var milkpot = $MilkPot
+		if not milkpot.filled:
+			return
+		$CupOpened.fill_hot_milk(milkpot.capacity) if milkpot.hot \
+		else $CupOpened.fill_cold_milk(milkpot.capacity)
 	else:
-		$Teapot.rect_global_position = _initial_position_teapot
+		$MilkPot.rect_global_position = _initial_position_milkpot
 		
-func _on_Teapot_button_down() -> void:
-	if $Teapot.locked:
+func _on_MilkPot_button_down() -> void:
+	if $MilkPot.locked:
 		return
-	_teapot_held = true
+	_milkpot_held = true
 	
-func _on_Teapot_area_entered(area: Area2D) -> void:
-	match(area.name):
-		"CoffeeMachineMilkArea2D":
-			_in_coffee_machine_milk_area = true
-		"MilkContainerArea2D":
-			_in_milk_area = true
+func _on_MilkPot_area_entered(area: Area2D) -> void:
+	if area == $CoffeeMilkMachine/Milk/Area2D:
+		_in_coffee_machine_milk_area = true
+	elif area == $MilkMachine/Area2D:
+		_in_milk_area = true
 
-func _on_Teapot_area_exited(area: Area2D) -> void:
-	match(area.name):
-		"CoffeeMachineMilkArea2D":
-			_in_coffee_machine_milk_area = false
-		"MilkContainerArea2D":
-			_in_milk_area = false
+func _on_MilkPot_area_exited(area: Area2D) -> void:
+	if area == $CoffeeMilkMachine/Milk/Area2D:
+		_in_coffee_machine_milk_area = false
+	elif area == $MilkMachine/Area2D:
+		_in_milk_area = false
 			
 func _fill_milk():
 	$AnimationPlayer.play("FillMilk")
@@ -72,10 +77,10 @@ func _on_CoffeeContainer_button_up() -> void:
 		return
 	_coffee_container_held = false
 	if _in_coffee_smasher_area:
-		$CoffeeContainer.rect_global_position = $CoffeeSmasher/Position2D.global_position
+		$CoffeeContainer.rect_global_position = $CoffeeSmasherMachine/Position2D.global_position
 		$AnimationPlayer.play("CoffeeSmash")
 	elif _in_coffee_machine_coffee_area and $CoffeeContainer/Full.visible:
-		$CoffeeContainer.rect_global_position = $Machine/Coffee/Position2D.global_position
+		$CoffeeContainer.rect_global_position = $CoffeeMilkMachine/Coffee/ContainerPosition2D.global_position
 		$CoffeeContainer/Full.hide()
 	else:
 		$CoffeeContainer.rect_global_position = _initial_position_coffee_container
@@ -86,18 +91,16 @@ func _on_CoffeeContainer_button_down() -> void:
 	_coffee_container_held = true
 
 func _on_CoffeeContainer_area_entered(area: Area2D) -> void:
-	match(area.name):
-		"CoffeeSmasherArea2D":
-			_in_coffee_smasher_area = true
-		"CoffeeMachineArea2D":
-			_in_coffee_machine_coffee_area = true
+	if area == $CoffeeSmasherMachine/Area2D:
+		_in_coffee_smasher_area = true
+	elif area == $CoffeeMilkMachine/Coffee/ContainerArea2D:
+		_in_coffee_machine_coffee_area = true
 
 func _on_CoffeeContainer_area_exited(area: Area2D) -> void:
-	match(area.name):
-		"CoffeeSmasherArea2D":
-			_in_coffee_smasher_area = false
-		"CoffeeMachineArea2D":
-			_in_coffee_machine_coffee_area = false
+	if area == $CoffeeSmasherMachine/Area2D:
+		_in_coffee_smasher_area = false
+	elif area == $CoffeeMilkMachine/Coffee/ContainerArea2D:
+		_in_coffee_machine_coffee_area = false
 	
 ##### coffee machine buttons
 
@@ -126,11 +129,14 @@ func _active_milk_controller():
 	$MilkController.rect_rotation = 160 if $MilkController.rect_rotation == 0 else 0
 
 func _on_CupOpened_area_entered(area: Area2D) -> void:
-	if area.name == "CoffeeMachineCupArea2D":
+	if area == $CoffeeMilkMachine/Coffee/CupArea2D:
 		_in_coffee_machine_cup_area = true
+	elif area == $MilkPot/Area2D:
+		_is_milk_over_cup = true
+		
 	
 func _on_CupOpened_area_exited(area: Area2D) -> void:
-	if area.name == "CoffeeMachineCupArea2D":
+	if area == $CoffeeMilkMachine/Coffee/CupArea2D:
 		_in_coffee_machine_cup_area = false
 
 func _on_CupOpened_button_down() -> void:
@@ -143,6 +149,6 @@ func _on_CupOpened_button_up() -> void:
 		return
 	_cup_held = false
 	if _in_coffee_machine_cup_area:
-		$CupOpened.rect_global_position = $Machine/Coffee/CupPosition2D.global_position
+		$CupOpened.rect_global_position = $CoffeeMilkMachine/Coffee/CupPosition2D.global_position
 	else:
 		$CupOpened.rect_global_position = _initial_position_cup

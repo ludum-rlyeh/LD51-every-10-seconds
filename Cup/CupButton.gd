@@ -1,5 +1,13 @@
 extends TextureButton
 
+var locked = false
+
+func lock():
+	locked = true
+
+func unlock():
+	locked = false
+
 
 var _client = null
 
