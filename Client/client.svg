@@ -25,7 +25,7 @@
      inkscape:document-units="mm"
      showgrid="false"
      inkscape:zoom="0.74564394"
-     inkscape:cx="189.76886"
+     inkscape:cx="191.10998"
      inkscape:cy="287.00025"
      inkscape:window-width="1920"
      inkscape:window-height="1017"
@@ -41,7 +41,7 @@
      id="layer1"
      transform="translate(-54.8521,-72.714269)">
     <ellipse
-       style="fill:#eaeaea;stroke:#000000;stroke-width:0.765"
+       style="fill:#ffcded;stroke:#000000;stroke-width:0.765;fill-opacity:1"
        id="path234"
        cx="99.887093"
        cy="100.95161"
@@ -49,7 +49,7 @@
        ry="27.854837" />
     <path
        id="rect288"
-       style="fill:#eaeaea;stroke:#000000;stroke-width:0.765"
+       style="fill:#ffcded;stroke:#000000;stroke-width:0.765;fill-opacity:1"
        d="m 58.716531,150.42069 c 14.235114,-26.18752 69.171539,-28.9568 80.548389,-1.40699 6.62184,16.0352 0.70968,109.31505 0.70968,109.31505 l -80.548392,0.34866 c 0,0 -8.938432,-93.11876 -0.709677,-108.25672 z"
        sodipodi:nodetypes="ssccs" />
   </g>
