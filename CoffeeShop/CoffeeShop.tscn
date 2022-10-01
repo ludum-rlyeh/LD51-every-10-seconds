@@ -1,9 +1,88 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://Cup/CupButton.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Client/Client.tscn" type="PackedScene" id=2]
-[ext_resource path="res://CoffeeMachine.tscn" type="PackedScene" id=3]
+[ext_resource path="res://CoffeeMachine/CoffeeMachine.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Manager/Manager.tscn" type="PackedScene" id=4]
+
+[sub_resource type="Animation" id=1]
+resource_name = "MoveCameraToClient"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/path = NodePath("Camera2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 512, 301 ), Vector2( 513, -66 ) ]
+}
+
+[sub_resource type="Animation" id=5]
+resource_name = "MoveCameraToCups"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/path = NodePath("Camera2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 513, -66 ), Vector2( -516, -2 ) ]
+}
+
+[sub_resource type="Animation" id=2]
+resource_name = "MoveCameraToManager"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/path = NodePath("Camera2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 512, 301 ), Vector2( 1260, 301 ) ]
+}
+
+[sub_resource type="Animation" id=3]
+resource_name = "MoveCameraToPreparation"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/path = NodePath("Camera2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( -516, -2 ), Vector2( 512, 301 ) ]
+}
+
+[sub_resource type="Animation" id=4]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("Camera2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( -516, -2 ) ]
+}
 
 [node name="CoffeeShop" type="Node2D"]
 
@@ -43,5 +122,12 @@ position = Vector2( 540, -384 )
 position = Vector2( 1782, 211 )
 
 [node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2( 509, -4 )
+position = Vector2( -516, -2 )
 current = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/MoveCameraToClient = SubResource( 1 )
+anims/MoveCameraToCups = SubResource( 5 )
+anims/MoveCameraToManager = SubResource( 2 )
+anims/MoveCameraToPreparation = SubResource( 3 )
+anims/RESET = SubResource( 4 )

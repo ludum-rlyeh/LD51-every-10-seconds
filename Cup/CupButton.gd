@@ -1,5 +1,8 @@
 extends TextureButton
 
+var in_coffee_machine = false
+var held = false
+
 var locked = false
 
 func lock():
