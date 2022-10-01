@@ -54,7 +54,6 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 
 [node name="Label" type="Label" parent="ScrollContainer"]
-margin_left = 20.0
 margin_top = 109.0
 margin_right = 257.0
 margin_bottom = 306.0

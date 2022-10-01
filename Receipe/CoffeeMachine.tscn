@@ -1,0 +1,121 @@
+[gd_scene load_steps=12 format=2]
+
+[ext_resource path="res://CoffeeMachine/CoffeeMachine.gd" type="Script" id=1]
+[ext_resource path="res://CoffeeMachine/Needle.svg" type="Texture" id=2]
+[ext_resource path="res://CoffeeMachine/CoffeeContainer.svg" type="Texture" id=3]
+[ext_resource path="res://CoffeeMachine/MilkController.svg" type="Texture" id=4]
+[ext_resource path="res://CoffeeMachine/machine.svg" type="Texture" id=5]
+[ext_resource path="res://CoffeeMachine/CoffeeSmasher.svg" type="Texture" id=6]
+[ext_resource path="res://icon.png" type="Texture" id=7]
+[ext_resource path="res://CoffeeMachine/teapot.svg" type="Texture" id=8]
+
+[sub_resource type="RectangleShape2D" id=3]
+extents = Vector2( 116.5, 74 )
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 135.75, 69.5 )
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 183.5, 49.5 )
+
+[node name="CoffeeMachine" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 408.0
+margin_top = 265.0
+margin_right = 408.0
+margin_bottom = 265.0
+rect_scale = Vector2( 0.5, 0.5 )
+script = ExtResource( 1 )
+
+[node name="MilkController" type="TextureButton" parent="."]
+margin_left = 298.0
+margin_top = -459.0
+margin_right = 338.0
+margin_bottom = -228.0
+rect_pivot_offset = Vector2( 21, 226 )
+texture_normal = ExtResource( 4 )
+
+[node name="Machine" type="Sprite" parent="."]
+position = Vector2( -690, -210 )
+texture = ExtResource( 5 )
+offset = Vector2( 690, 210 )
+
+[node name="Position2D" type="Position2D" parent="Machine"]
+position = Vector2( 294, 124 )
+
+[node name="CoffeeMachineArea2D" type="Area2D" parent="Machine"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Machine/CoffeeMachineArea2D"]
+position = Vector2( 550.5, 166 )
+shape = SubResource( 3 )
+
+[node name="Needle" type="Sprite" parent="."]
+position = Vector2( 143, -234 )
+texture = ExtResource( 2 )
+
+[node name="CoffeeSmasher" type="Sprite" parent="."]
+position = Vector2( -482, 9 )
+texture = ExtResource( 6 )
+
+[node name="Position2D" type="Position2D" parent="CoffeeSmasher"]
+position = Vector2( -296, 139 )
+
+[node name="CoffeeSmasherArea2D" type="Area2D" parent="CoffeeSmasher"]
+position = Vector2( -5, 192 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CoffeeSmasher/CoffeeSmasherArea2D"]
+shape = SubResource( 1 )
+
+[node name="CoffeeContainer" type="TextureButton" parent="."]
+margin_left = 421.0
+margin_top = 211.0
+margin_right = 776.0
+margin_bottom = 312.0
+rect_pivot_offset = Vector2( 174, 39 )
+texture_normal = ExtResource( 3 )
+
+[node name="Area2D" type="Area2D" parent="CoffeeContainer"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CoffeeContainer/Area2D"]
+position = Vector2( 173.5, 42.5 )
+shape = SubResource( 2 )
+
+[node name="Ristretto" type="Button" parent="."]
+margin_left = -196.0
+margin_top = -214.0
+margin_right = -154.0
+margin_bottom = -172.0
+flat = true
+
+[node name="Expresso" type="Button" parent="."]
+margin_left = -134.0
+margin_top = -214.0
+margin_right = -92.0
+margin_bottom = -172.0
+flat = true
+
+[node name="Lungo" type="Button" parent="."]
+margin_left = -70.0
+margin_top = -214.0
+margin_right = -28.0
+margin_bottom = -172.0
+flat = true
+
+[node name="Cup" type="Sprite" parent="."]
+position = Vector2( 538, -32 )
+scale = Vector2( 2.46875, 2.46875 )
+texture = ExtResource( 7 )
+
+[node name="Teapot" type="Sprite" parent="."]
+position = Vector2( 934, -14 )
+texture = ExtResource( 8 )
+
+[connection signal="pressed" from="MilkController" to="." method="_on_MilkController_pressed"]
+[connection signal="button_down" from="CoffeeContainer" to="." method="_on_CoffeeContainer_button_down"]
+[connection signal="button_up" from="CoffeeContainer" to="." method="_on_CoffeeContainer_button_up"]
+[connection signal="area_entered" from="CoffeeContainer/Area2D" to="." method="_on_Area2D_area_entered"]
+[connection signal="area_exited" from="CoffeeContainer/Area2D" to="." method="_on_Area2D_area_exited"]
+[connection signal="pressed" from="Ristretto" to="." method="_on_Ristretto_pressed"]
+[connection signal="pressed" from="Expresso" to="." method="_on_Expresso_pressed"]
+[connection signal="pressed" from="Lungo" to="." method="_on_Lungo_pressed"]

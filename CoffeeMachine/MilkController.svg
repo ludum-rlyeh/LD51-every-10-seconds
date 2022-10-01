@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="9.9504004mm"
+   height="61.142071mm"
+   viewBox="0 0 9.9504004 61.142071"
+   version="1.1"
+   id="svg3199"
+   inkscape:version="1.0.1 (3bc2e813f5, 2020-09-07)"
+   sodipodi:docname="MilkController.svg">
+  <defs
+     id="defs3193" />
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="0.33843844"
+     inkscape:cx="339.02574"
+     inkscape:cy="483.48551"
+     inkscape:document-units="mm"
+     inkscape:current-layer="layer1"
+     inkscape:document-rotation="0"
+     showgrid="false"
+     fit-margin-top="0"
+     fit-margin-left="0"
+     fit-margin-right="0"
+     fit-margin-bottom="0"
+     inkscape:window-width="1600"
+     inkscape:window-height="838"
+     inkscape:window-x="-6"
+     inkscape:window-y="-6"
+     inkscape:window-maximized="1" />
+  <metadata
+     id="metadata3196">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Calque 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(-16.132774,-20.244458)">
+    <g
+       id="g3191"
+       transform="translate(-176.71743,24.191055)">
+      <g
+         id="g2997"
+         transform="translate(-2.1498863,-8.7949895)">
+        <g
+           id="g2990">
+          <g
+             id="g2939"
+             transform="translate(-1.0399719)">
+            <rect
+               style="opacity:0.999;fill:#5f5f5f;fill-opacity:1;stroke:none;stroke-width:0.765;stroke-opacity:1;stop-color:#000000"
+               id="rect2934"
+               width="2.8330986"
+               height="10.019495"
+               x="197.07309"
+               y="55.97097"
+               ry="2" />
+            <path
+               id="rect2932"
+               style="opacity:0.999;fill:#6d6d6d;fill-opacity:1;stroke:none;stroke-width:0.765;stroke-opacity:1;stop-color:#000000"
+               d="m 198.47359,53.649437 h 5.27699 V 64.51156 c 0.0203,0.705578 -0.0103,1.462845 -1.03171,1.462845 h -4.24528 z"
+               sodipodi:nodetypes="cccccc" />
+            <rect
+               style="opacity:0.999;fill:#a0a0a0;fill-opacity:1;stroke:none;stroke-width:0.465564;stroke-opacity:1;stop-color:#000000"
+               id="rect3174"
+               width="1.8078541"
+               height="12.324966"
+               x="201.30753"
+               y="53.649437" />
+          </g>
+          <path
+             id="rect2930"
+             style="opacity:0.999;fill:#6b4747;fill-opacity:1;stroke:none;stroke-width:0.827318;stroke-opacity:1;stop-color:#000000"
+             d="m 195.00009,6.9362949 c 0,-2.755149 9.9504,-2.8124422 9.9504,0 V 51.749076 c -1.14234,0.974922 0,0.754091 0,1.737556 -4.52522,1.710861 -7.1036,0.665413 -9.9504,0 0,-1.182725 1.32947,-0.991639 0,-2.10123 z"
+             sodipodi:nodetypes="ccccccc" />
+        </g>
+      </g>
+      <path
+         id="rect3171"
+         style="opacity:0.999;fill:#8b5d5d;fill-opacity:1;stroke:none;stroke-width:1.09068;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;stop-color:#000000"
+         d="m 199.45572,-3.7465856 c 0.91164,0.1652577 1.65133,0.1689664 2.17432,0.4857405 l 0.0798,46.3166161 c 0,0 -0.35684,0.475117 -0.39607,0.771569 -0.0589,0.445074 0.26741,1.314422 0.26741,1.314422 l -2.19875,0.400021 c 0,0 -0.37153,-1.07602 -0.31517,-1.628753 0.0376,-0.369313 0.42346,-0.999841 0.42346,-0.999841 z"
+         sodipodi:nodetypes="cccsccscc" />
+    </g>
+  </g>
+</svg>
