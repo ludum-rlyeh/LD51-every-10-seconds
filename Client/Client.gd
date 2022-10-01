@@ -18,6 +18,14 @@ func _ready():
 	command["extraGlass"] = bool(randi() % 2)
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
+func receive_cup(cupServed):
+	var wantedReceipe = Global.receipes[command["base"]]
+	var nb_elements_ok = wantedReceipe.keys().size()
+	for key in wantedReceipe:
+		if cupServed.has(key):
+			if cupServed[key] != wantedReceipe[key]:
+				nb_elements_ok =- 1
+	generate_emotion(nb_elements_ok)
+
+func generate_emotion(nb_elements_ok):
+	pass
