@@ -1,0 +1,73 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Fonts/Roboto-Medium.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://Receipe/bg.jpg" type="Texture" id=2]
+
+[sub_resource type="DynamicFont" id=2]
+size = 18
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 1 )
+
+[sub_resource type="GDScript" id=1]
+script/source = "extends Label
+
+func _ready():
+	set_text(content)
+
+var content = \\
+\"== Ristretto\\n\" + \\
+\"2.5 ml coffee\\n\" + \\
+\"== Expresso\\n\" + \\
+\"5 ml coffee\\n\" + \\
+\"== Lungo\\n\" + \\
+\"7 ml coffee\\n\" + \\
+\"== Macchiato\\n\" + \\
+\"5 ml coffee\\n\" + \\
+\"1 shot of nut sirop\\n\" + \\
+\"== Caramel macchiato\\n\" + \\
+\"5 ml coffee\\n\" + \\
+\"1 shot of nut sirop\\n\" + \\
+\"1 shot of caramel sirop\\n\" + \\
+\"== Mocha\\n\" + \\
+\"5 ml coffee\\n\" + \\
+\"1 shot of chocolate sirop\\n\" + \\
+\"15ml hot milk\\n\" + \\
+\"== Flat milk\\n\" + \\
+\"5 ml coffee\\n\" + \\
+\"25ml hot milk\\n\" + \\
+\"== Viennese chocolate coffee\\n\" + \\
+\"25ml cold milk\\n\" + \\
+\"1 shot of chocolate sirop\\n\"
+"
+
+[node name="Receipe" type="TextureButton"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_right = -767.0
+margin_bottom = -184.0
+texture_normal = ExtResource( 2 )
+expand = true
+stretch_mode = 1
+
+[node name="ScrollContainer" type="ScrollContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="Label" type="Label" parent="ScrollContainer"]
+margin_left = 20.0
+margin_top = 109.0
+margin_right = 257.0
+margin_bottom = 306.0
+size_flags_horizontal = 3
+size_flags_vertical = 6
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 2 )
+text = "Expresso
+5 ml coffee 
+Macchiato
+5 ml coffee
+1 shot of nut sirop
+Chai latte
+20 ml milk 
+"
+script = SubResource( 1 )
