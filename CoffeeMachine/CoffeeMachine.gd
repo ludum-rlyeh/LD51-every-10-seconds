@@ -36,7 +36,6 @@ func _on_Area2D_area_exited(area: Area2D) -> void:
 		"CoffeeMachineArea2D":
 			_in_coffee_machine_coffee_area = false
 
-
 func _on_Ristretto_pressed() -> void:
 	pass # Replace with function body.
 
