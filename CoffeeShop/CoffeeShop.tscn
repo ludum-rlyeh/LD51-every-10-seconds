@@ -2,7 +2,7 @@
 
 [ext_resource path="res://CupsOrders/CupsOrders.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Clients/Clients.tscn" type="PackedScene" id=2]
-[ext_resource path="res://CoffeeMachine/CoffeeMachine.tscn" type="PackedScene" id=3]
+[ext_resource path="res://CoffeeShop/CoffeeMachine.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Manager/Manager.tscn" type="PackedScene" id=4]
 [ext_resource path="res://CoffeeShop/CoffeeShop.gd" type="Script" id=5]
 [ext_resource path="res://Common/next_scene.svg" type="Texture" id=6]

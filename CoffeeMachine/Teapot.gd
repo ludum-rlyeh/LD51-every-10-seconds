@@ -4,11 +4,7 @@ var locked = false
 var filled = false
 var hot = false
 
-var capacity = 100 # ml
 var held = false
-var in_milk_machine = false
-var in_coffee_machine = false
-var is_over_cup = false
 
 func lock():
 	locked = true
@@ -16,14 +12,18 @@ func lock():
 func unlock():
 	locked = false
 
-func fill():
+func fill_cold_milk():
+	print_debug("fill cold milk")
 	filled = true
 	
 func unfill():
+	print_debug("unfill milk")
 	filled = false
 	
 func heat():
+	print_debug("heat milk")
 	hot = true
 	
 func cold():
+	print_debug("cold milk")
 	hot = false
