@@ -23,6 +23,7 @@ func reinit():
 	$CupOpened.rect_global_position = _initial_position_cup
 	$ReceipesBig.hide()
 	$ReceipesLittle.show()
+	$Hand.leave()
 
 func get_cup_content():
 	return $CupOpened.content
@@ -222,7 +223,6 @@ func _on_ChocolateSirop_pressed() -> void:
 	$AnimationPlayer.play("ChocolateShot")
 	if $Sirops/CaramelSirop.cup:
 		$CupOpened.add_chocolate_sirop(1)
-
 
 func _on_ReceipesLittle_pressed() -> void:
 	$ReceipesBig.show()

@@ -2,14 +2,10 @@
 
 [ext_resource path="res://Clients/Clients.gd" type="Script" id=2]
 
-[node name="Clients" type="Node2D"]
-script = ExtResource( 2 )
-
-[node name="Queue" type="HBoxContainer" parent="."]
+[node name="WaitingClientsQueue" type="HBoxContainer"]
 margin_left = 177.0
 margin_top = 96.0
 margin_right = 834.0
 margin_bottom = 432.0
 rect_min_size = Vector2( 20, 20 )
-
-[connection signal="child_entered_tree" from="Queue" to="." method="_on_Queue_child_entered_tree"]
+script = ExtResource( 2 )

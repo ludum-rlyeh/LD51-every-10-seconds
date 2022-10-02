@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=2]
+[gd_scene load_steps=20 format=2]
 
 [ext_resource path="res://CupsOrders/CupsOrders.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Clients/Clients.tscn" type="PackedScene" id=2]
@@ -10,6 +10,7 @@
 [ext_resource path="res://CoffeeShop/LoopTimer.gd" type="Script" id=8]
 [ext_resource path="res://CoffeeShop/background.svg" type="Texture" id=9]
 [ext_resource path="res://CoffeeShop/bar.svg" type="Texture" id=10]
+[ext_resource path="res://CoffeeShop/ClientsQueue.gd" type="Script" id=11]
 
 [sub_resource type="DynamicFont" id=6]
 size = 50
@@ -113,9 +114,23 @@ script = ExtResource( 5 )
 position = Vector2( 522, -9 )
 texture = ExtResource( 9 )
 
+[node name="ClientsWaitingQueue" parent="." instance=ExtResource( 2 )]
+margin_top = -388.0
+margin_bottom = -52.0
+
+[node name="ClientsOrderingQueue" type="HBoxContainer" parent="."]
+margin_left = -670.0
+margin_top = -388.0
+margin_right = -630.0
+margin_bottom = -348.0
+script = ExtResource( 11 )
+
 [node name="Bar" type="Sprite" parent="."]
 position = Vector2( 185, 232 )
 texture = ExtResource( 10 )
+
+[node name="CupsOrders" parent="." instance=ExtResource( 1 )]
+position = Vector2( -1025, -301 )
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 script = ExtResource( 7 )
@@ -133,9 +148,6 @@ margin_bottom = 34.0
 margin_top = 39.0
 margin_right = 40.0
 margin_bottom = 53.0
-
-[node name="CupsOrders" parent="." instance=ExtResource( 1 )]
-position = Vector2( -1025, -301 )
 
 [node name="CoffeeMachine" parent="." instance=ExtResource( 3 )]
 
@@ -164,15 +176,15 @@ anims/MoveCameraToManager = SubResource( 2 )
 anims/MoveCameraToPreparation = SubResource( 3 )
 anims/RESET = SubResource( 4 )
 
-[node name="Clients" parent="." instance=ExtResource( 2 )]
-position = Vector2( 0, -611 )
-
 [node name="LoopTimer" type="Node" parent="."]
 script = ExtResource( 8 )
 
-[connection signal="cup_picked" from="CupsOrders" to="." method="_on_CupsOrders_cup_picked"]
-[connection signal="preparation_started" from="CupsOrders" to="." method="_on_CupsOrders_preparation_started"]
+[connection signal="client_selected" from="ClientsWaitingQueue" to="." method="_on_cup_given_to_client"]
+[connection signal="client_is_waiting" from="ClientsOrderingQueue" to="ClientsWaitingQueue" method="_on_new_client_waiting"]
+[connection signal="new_client" from="ClientsOrderingQueue" to="CupsOrders" method="_on_ClientsOrderingQueue_new_client"]
+[connection signal="client_picked" from="CupsOrders" to="ClientsOrderingQueue" method="_on_client_picked"]
+[connection signal="preparation_started" from="CupsOrders" to="." method="_on_preparation_started"]
+[connection signal="preparation_started" from="CupsOrders" to="ClientsOrderingQueue" method="_on_command_prepared"]
 [connection signal="pressed" from="CoffeeMachine/Next" to="." method="_on_ClientNext_pressed"]
-[connection signal="client_selected" from="Clients" to="." method="_on_Clients_client_selected"]
 [connection signal="time_changed" from="LoopTimer" to="CanvasLayer" method="_on_LoopTimer_time_changed"]
 [connection signal="time_out" from="LoopTimer" to="." method="_on_LoopTimer_time_out"]
