@@ -4,7 +4,7 @@
 [ext_resource path="res://Receipe/bg.svg" type="Texture" id=2]
 
 [sub_resource type="DynamicFont" id=2]
-size = 18
+size = 40
 outline_color = Color( 0, 0, 0, 1 )
 font_data = ExtResource( 1 )
 
@@ -41,7 +41,7 @@ var content = \\
 "
 
 [sub_resource type="DynamicFont" id=3]
-size = 40
+size = 60
 use_filter = true
 font_data = ExtResource( 1 )
 
@@ -51,20 +51,20 @@ anchor_bottom = 1.0
 margin_right = -686.0
 margin_bottom = -122.0
 texture_normal = ExtResource( 2 )
-expand = true
 
 [node name="ScrollContainer" type="ScrollContainer" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 34.0
-margin_top = 53.0
+margin_top = 168.0
 margin_right = -45.0
 margin_bottom = -28.0
+mouse_filter = 1
 
 [node name="Label" type="Label" parent="ScrollContainer"]
-margin_top = 100.0
-margin_right = 259.0
-margin_bottom = 297.0
+margin_top = 194.0
+margin_right = 538.0
+margin_bottom = 599.0
 size_flags_horizontal = 3
 size_flags_vertical = 6
 custom_colors/font_color = Color( 0, 0, 0, 1 )
@@ -80,10 +80,10 @@ Chai latte
 script = SubResource( 1 )
 
 [node name="Label" type="Label" parent="."]
-margin_left = 79.0
-margin_top = 10.0
-margin_right = 242.0
-margin_bottom = 58.0
+margin_left = 168.0
+margin_top = 25.0
+margin_right = 411.0
+margin_bottom = 96.0
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 custom_fonts/font = SubResource( 3 )
 text = "Receipes"

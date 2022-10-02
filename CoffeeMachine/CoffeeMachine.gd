@@ -22,6 +22,8 @@ func reinit():
 	$MilkPot.rect_global_position = _initial_position_milkpot
 	$CupOpened.rect_global_position = _initial_position_cup
 	$ReceipesBig.hide()
+	$ReceipesLittle.show()
+	
 
 func get_cup_content():
 	return $CupOpened.content
@@ -225,6 +227,8 @@ func _on_ChocolateSirop_pressed() -> void:
 
 func _on_ReceipesLittle_pressed() -> void:
 	$ReceipesBig.show()
+	$ReceipesLittle.hide()
 
 func _on_ReceipesBig_pressed() -> void:
 	$ReceipesBig.hide()
+	$ReceipesLittle.show()

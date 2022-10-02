@@ -728,7 +728,6 @@ margin_left = -48.0
 margin_top = -436.0
 margin_right = -734.0
 margin_bottom = -558.0
-rect_scale = Vector2( 2, 2 )
 
 [connection signal="pressed" from="MilkController" to="." method="_on_MilkController_pressed"]
 [connection signal="pressed" from="CoffeeMilkMachine/Coffee/CupOpenedGhost" to="." method="_on_CoffeeMachineCupOpenedGhost_pressed"]
