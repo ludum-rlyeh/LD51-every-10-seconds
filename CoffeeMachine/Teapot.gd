@@ -4,6 +4,11 @@ var locked = false
 var filled = false
 var hot = false
 
+func reinit():
+	locked = false
+	filled = false
+	hot = false
+	
 func lock():
 	locked = true
 

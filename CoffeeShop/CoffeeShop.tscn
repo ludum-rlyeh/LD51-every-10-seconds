@@ -1,15 +1,31 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=19 format=2]
 
 [ext_resource path="res://CupsOrders/CupsOrders.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Clients/Clients.tscn" type="PackedScene" id=2]
 [ext_resource path="res://CoffeeShop/CoffeeMachine.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Manager/Manager.tscn" type="PackedScene" id=4]
 [ext_resource path="res://CoffeeShop/CoffeeShop.gd" type="Script" id=5]
-[ext_resource path="res://Common/next_scene.svg" type="Texture" id=6]
+[ext_resource path="res://Fonts/Roboto-Medium.ttf" type="DynamicFontData" id=6]
 [ext_resource path="res://CoffeeShop/CanvasLayer.gd" type="Script" id=7]
 [ext_resource path="res://CoffeeShop/LoopTimer.gd" type="Script" id=8]
 [ext_resource path="res://CoffeeShop/background.svg" type="Texture" id=9]
 [ext_resource path="res://CoffeeShop/bar.svg" type="Texture" id=10]
+
+[sub_resource type="DynamicFont" id=6]
+size = 50
+use_filter = true
+font_data = ExtResource( 6 )
+
+[sub_resource type="StyleBoxFlat" id=8]
+bg_color = Color( 1, 0, 0, 1 )
+
+[sub_resource type="StyleBoxFlat" id=7]
+bg_color = Color( 0, 0, 0, 1 )
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color( 0, 0, 0, 1 )
 
 [sub_resource type="Animation" id=1]
 resource_name = "MoveCameraToClient"
@@ -123,14 +139,16 @@ position = Vector2( -1025, -301 )
 
 [node name="CoffeeMachine" parent="." instance=ExtResource( 3 )]
 
-[node name="Next" type="TextureButton" parent="CoffeeMachine"]
-margin_left = 68.0
-margin_top = -368.0
-margin_right = 178.0
-margin_bottom = -241.0
-rect_rotation = -90.0
+[node name="Next" type="Button" parent="CoffeeMachine"]
+margin_left = 730.0
+margin_top = -532.0
+margin_right = 1009.0
+margin_bottom = -405.0
 rect_scale = Vector2( 1.5, 1.5 )
-texture_normal = ExtResource( 6 )
+custom_fonts/font = SubResource( 6 )
+custom_styles/hover = SubResource( 8 )
+custom_styles/normal = SubResource( 7 )
+text = "CUP READY"
 
 [node name="Manager" parent="." instance=ExtResource( 4 )]
 position = Vector2( 1782, 211 )

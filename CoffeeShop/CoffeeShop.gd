@@ -7,6 +7,7 @@ func _on_ClientNext_pressed() -> void:
 	$CoffeeMachine/Next.hide()
 	
 func _on_CupsOrders_preparation_started() -> void:
+	$CoffeeMachine.reinit()
 	$AnimationPlayer.play("MoveCameraToPreparation")
 	$CoffeeMachine/Next.show()
 	if not $LoopTimer.is_running:

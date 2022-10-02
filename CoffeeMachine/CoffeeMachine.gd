@@ -4,6 +4,24 @@ var _initial_position_coffee_container
 var _initial_position_milkpot
 var _initial_position_cup
 
+func reinit():
+	get_tree().call_group("CoffeeContainerGhost", "hide")
+	get_tree().call_group("MilkPotGhost", "hide")
+	get_tree().call_group("CupOpenedGhost", "hide")
+	$CoffeeContainer.reinit()
+	$CoffeeContainer/Full.hide()
+	$MilkPot.reinit()
+	$CupOpened.reinit()
+	$CoffeeMilkMachine.reinit()
+	$CoffeeSmasherMachine.reinit()
+	$MilkMachine.reinit()
+	$Sirops/CaramelSirop.reinit()
+	$Sirops/ChocolateSirop.reinit()
+	$Sirops/NutsSirop.reinit()
+	$CoffeeContainer.rect_global_position = _initial_position_coffee_container
+	$MilkPot.rect_global_position = _initial_position_milkpot
+	$CupOpened.rect_global_position = _initial_position_cup
+
 func get_cup_content():
 	return $CupOpened.content
 
