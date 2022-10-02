@@ -13,14 +13,12 @@ func _on_CupsOrders_preparation_started() -> void:
 		$LoopTimer.start()
 	
 func _on_Clients_client_selected(client) -> void:
-	assert(client == _current_client)
 	if client.receive_cup($CoffeeMachine.get_cup_content()):
 		Global.increase_succeed_orders()
 	else:
 		Global.increase_failed_orders()
 	$Clients.remove_client(client)
 	client.queue_free()
-	_current_client = null
 	$AnimationPlayer.play("MoveCameraToCups")
 	$LoopTimer.restart()
 

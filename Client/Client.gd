@@ -1,13 +1,13 @@
 extends TextureButton
 
-export var real_name = "Adrian"
-export var gm_name = "Alian"
+var real_name = "Adrian"
+var gm_name = "Alian"
 
-export var command = {
+var command = {
 	"base": "Expresso",
 	"extraSugar": false,
 	"extraCream": false,
-	"extraGlass": true
+	"extraGlass": false
 }
 
 # Called when the node enters the scene tree for the first time.
@@ -20,6 +20,8 @@ func _ready():
 
 func receive_cup(cupServed) -> bool:
 	var wantedReceipe = Global.receipes[command["base"]]
+	print(cupServed)
+	print(wantedReceipe)
 	var nb_elements_ok = wantedReceipe.keys().size()
 	for key in wantedReceipe:
 		if cupServed.has(key):
