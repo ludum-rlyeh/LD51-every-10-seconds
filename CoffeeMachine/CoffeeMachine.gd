@@ -23,7 +23,6 @@ func reinit():
 	$CupOpened.rect_global_position = _initial_position_cup
 	$ReceipesBig.hide()
 	$ReceipesLittle.show()
-	
 
 func get_cup_content():
 	return $CupOpened.content
@@ -104,7 +103,7 @@ func _on_MilkController_pressed() -> void:
 func _on_CoffeeMachineMilkPotGhost_pressed() -> void:
 	$Hand.leave()
 	$MilkPot.rect_global_position = $CoffeeMilkMachine/Milk/MilkPotGhost.rect_global_position
-	$MilkMachine.milk_pot = $MilkPot
+	$CoffeeMilkMachine.milk_pot = $MilkPot
 	get_tree().call_group("MilkPotGhost", "hide")
 
 # drop the cup inside the milk machine
@@ -124,7 +123,7 @@ func _on_MilkMachineMilkPotGhost_pressed() -> void:
 
 # drop coffee container inside the smashing coffee machine
 func _on_CoffeeSmasherCoffeeContainerGhost_pressed() -> void:
-	$Hand.leave()	
+	$Hand.leave()
 	$CoffeeContainer.rect_global_position = $CoffeeSmasherMachine/CoffeeContainerGhost.rect_global_position
 	$CoffeeSmasherMachine.coffee_container = $CoffeeContainer
 	get_tree().call_group("CoffeeContainerGhost", "hide")

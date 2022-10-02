@@ -436,10 +436,10 @@ tracks/15/keys = {
 [node name="CoffeeMachine" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = 408.0
-margin_top = 265.0
-margin_right = 408.0
-margin_bottom = 265.0
+margin_left = 367.0
+margin_top = 200.0
+margin_right = 367.0
+margin_bottom = 200.0
 rect_scale = Vector2( 0.5, 0.5 )
 script = ExtResource( 1 )
 
@@ -650,17 +650,17 @@ margin_bottom = 20.0
 value = 0.0
 
 [node name="Hand" type="Sprite" parent="."]
-position = Vector2( 732, 326 )
+position = Vector2( 732, 336 )
 texture = ExtResource( 26 )
 offset = Vector2( 116, 200 )
 flip_h = true
 script = ExtResource( 20 )
 
 [node name="CoffeeContainer" type="TextureButton" parent="."]
-margin_left = -482.0
-margin_top = 347.0
-margin_right = -127.0
-margin_bottom = 448.0
+margin_left = -548.0
+margin_top = 438.0
+margin_right = -193.0
+margin_bottom = 539.0
 rect_pivot_offset = Vector2( 174, 39 )
 texture_normal = ExtResource( 7 )
 script = ExtResource( 12 )
@@ -674,16 +674,16 @@ __meta__ = {
 }
 
 [node name="CupOpened" parent="." instance=ExtResource( 15 )]
-margin_left = 488.0
-margin_top = 336.0
-margin_right = 657.0
-margin_bottom = 571.0
+margin_left = -138.0
+margin_top = 300.0
+margin_right = 31.0
+margin_bottom = 535.0
 
 [node name="MilkPot" type="TextureButton" parent="."]
-margin_left = 146.0
-margin_top = 289.0
-margin_right = 389.0
-margin_bottom = 500.0
+margin_left = 100.0
+margin_top = 320.0
+margin_right = 343.0
+margin_bottom = 531.0
 texture_normal = ExtResource( 5 )
 script = ExtResource( 11 )
 
@@ -698,29 +698,29 @@ anims/NutsShot = SubResource( 14 )
 anims/RESET = SubResource( 8 )
 
 [node name="CoffeeContainerGhost" parent="." groups=["CoffeeContainerGhost"] instance=ExtResource( 13 )]
-margin_left = -482.0
-margin_top = 347.0
-margin_right = -127.0
-margin_bottom = 448.0
+margin_left = -548.0
+margin_top = 438.0
+margin_right = -193.0
+margin_bottom = 539.0
 
 [node name="CupOpenedGhost" parent="." groups=["CupOpenedGhost"] instance=ExtResource( 14 )]
 modulate = Color( 1, 1, 1, 0.25098 )
-margin_left = 488.0
-margin_top = 339.0
-margin_right = 657.0
-margin_bottom = 574.0
+margin_left = -138.0
+margin_top = 303.0
+margin_right = 31.0
+margin_bottom = 538.0
 
 [node name="MilkPotGhost" parent="." groups=["MilkPotGhost"] instance=ExtResource( 16 )]
-margin_left = 148.0
-margin_top = 287.0
-margin_right = 391.0
-margin_bottom = 498.0
+margin_left = 102.0
+margin_top = 318.0
+margin_right = 345.0
+margin_bottom = 529.0
 
 [node name="ReceipesLittle" parent="." instance=ExtResource( 27 )]
-margin_left = -764.0
-margin_top = 538.0
-margin_right = -1450.0
-margin_bottom = 416.0
+margin_left = -662.0
+margin_top = 576.0
+margin_right = -1069.0
+margin_bottom = 965.0
 
 [node name="ReceipesBig" parent="." instance=ExtResource( 27 )]
 visible = false
