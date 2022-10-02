@@ -231,3 +231,7 @@ func _on_ReceipesLittle_pressed() -> void:
 func _on_ReceipesBig_pressed() -> void:
 	$ReceipesBig.hide()
 	$ReceipesLittle.show()
+
+
+func _on_LoopTimer_time_changed(value) -> void:
+	$Clock.update_value(value)

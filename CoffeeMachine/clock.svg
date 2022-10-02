@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="70.075325mm"
+   height="36.059605mm"
+   viewBox="0 0 70.075325 36.059605"
+   version="1.1"
+   id="svg5"
+   inkscape:version="1.2.1 (9c6d41e410, 2022-07-14)"
+   sodipodi:docname="clock.svg"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview7"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:document-units="mm"
+     showgrid="false"
+     inkscape:zoom="3.3638608"
+     inkscape:cx="181.93381"
+     inkscape:cy="66.441512"
+     inkscape:window-width="1600"
+     inkscape:window-height="838"
+     inkscape:window-x="-6"
+     inkscape:window-y="-6"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="layer1" />
+  <defs
+     id="defs2" />
+  <g
+     inkscape:label="Calque 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(-16.130203,-31.758601)">
+    <rect
+       style="opacity:0.999;fill:#333333;stroke:#000000;stroke-width:0.665001;stop-color:#000000"
+       id="rect1158"
+       width="10.382415"
+       height="1.8877118"
+       x="63.474312"
+       y="65.597992" />
+    <rect
+       style="opacity:0.999;fill:#333333;stroke:#000000;stroke-width:0.665001;stop-color:#000000"
+       id="rect1156"
+       width="10.382415"
+       height="1.8877118"
+       x="25.48411"
+       y="65.597992" />
+    <path
+       id="rect1003"
+       style="opacity:0.999;fill:#008000;stroke:#000000;stroke-width:0.670184;stop-color:#000000"
+       d="m 23.989672,32.093693 53.721133,-0.157309 c 2.743922,0.08831 5.523092,2.471696 6.013011,4.300098 l 1.87686,11.740268 h -62.948134 -6.01449 l 1.907047,-11.536085 c 0.250172,-1.513342 3.575688,-4.346972 5.444573,-4.346972 z"
+       sodipodi:nodetypes="ccccccsc" />
+    <rect
+       style="opacity:0.999;fill:#006000;stroke:#000000;stroke-width:0.665001;stop-color:#000000;fill-opacity:1"
+       id="rect788"
+       width="69.410324"
+       height="23.136774"
+       x="16.462704"
+       y="42.714043"
+       ry="6.6740694"
+       rx="9.3436966" />
+    <rect
+       style="opacity:0.999;fill:#2f2f2f;fill-opacity:1;stroke:#000000;stroke-width:0.5577;stop-color:#000000"
+       id="rect2896"
+       width="60.972008"
+       height="18.524796"
+       x="20.681864"
+       y="45.020031"
+       ry="5.3436913"
+       rx="8.2077694" />
+  </g>
+</svg>

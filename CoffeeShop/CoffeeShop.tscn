@@ -116,13 +116,16 @@ texture = ExtResource( 9 )
 
 [node name="ClientsWaitingQueue" parent="." instance=ExtResource( 2 )]
 margin_top = -388.0
-margin_bottom = -52.0
+margin_right = 760.0
+margin_bottom = 112.0
+grow_vertical = 0
 
 [node name="ClientsOrderingQueue" type="HBoxContainer" parent="."]
-margin_left = -670.0
+margin_left = -646.0
 margin_top = -388.0
-margin_right = -630.0
-margin_bottom = -348.0
+margin_right = -63.0
+margin_bottom = 112.0
+grow_vertical = 0
 script = ExtResource( 11 )
 
 [node name="Bar" type="Sprite" parent="."]
@@ -130,7 +133,7 @@ position = Vector2( 185, 232 )
 texture = ExtResource( 10 )
 
 [node name="CupsOrders" parent="." instance=ExtResource( 1 )]
-position = Vector2( -1025, -301 )
+position = Vector2( -901, -202 )
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 script = ExtResource( 7 )
@@ -187,4 +190,5 @@ script = ExtResource( 8 )
 [connection signal="preparation_started" from="CupsOrders" to="ClientsOrderingQueue" method="_on_command_prepared"]
 [connection signal="pressed" from="CoffeeMachine/Next" to="." method="_on_ClientNext_pressed"]
 [connection signal="time_changed" from="LoopTimer" to="CanvasLayer" method="_on_LoopTimer_time_changed"]
+[connection signal="time_changed" from="LoopTimer" to="CoffeeMachine" method="_on_LoopTimer_time_changed"]
 [connection signal="time_out" from="LoopTimer" to="." method="_on_LoopTimer_time_out"]

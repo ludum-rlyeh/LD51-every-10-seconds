@@ -6,23 +6,18 @@
 [node name="CupsOrders" type="Node2D"]
 script = ExtResource( 2 )
 
-[node name="ClientsQueue" type="HBoxContainer" parent="."]
-margin_left = 158.0
-margin_top = 134.0
-margin_right = 198.0
-margin_bottom = 174.0
-
 [node name="CupsQueue" type="HBoxContainer" parent="."]
 margin_left = 289.0
-margin_top = 407.0
+margin_top = 344.0
 margin_right = 678.0
-margin_bottom = 583.0
+margin_bottom = 469.0
+rect_scale = Vector2( 0.5, 0.5 )
 
 [node name="CupCommand" parent="." instance=ExtResource( 1 )]
 visible = false
 margin_left = 326.0
-margin_top = 34.0
+margin_top = 12.0
 margin_right = 667.0
-margin_bottom = 564.0
+margin_bottom = 542.0
 
 [connection signal="pressed" from="CupCommand" to="." method="_on_CupCommand_pressed"]

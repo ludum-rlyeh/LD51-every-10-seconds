@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=2]
+[gd_scene load_steps=40 format=2]
 
 [ext_resource path="res://CoffeeMachine/CoffeeMachine.gd" type="Script" id=1]
 [ext_resource path="res://CoffeeMachine/CoffeeContainerFull.svg" type="Texture" id=2]
@@ -27,6 +27,9 @@
 [ext_resource path="res://CoffeeMachine/Sirop.gd" type="Script" id=25]
 [ext_resource path="res://CoffeeMachine/Hand.svg" type="Texture" id=26]
 [ext_resource path="res://Receipe/Receipe.tscn" type="PackedScene" id=27]
+[ext_resource path="res://CoffeeMachine/clock.svg" type="Texture" id=28]
+[ext_resource path="res://Fonts/digital-7.ttf" type="DynamicFontData" id=29]
+[ext_resource path="res://CoffeeShop/Clock.gd" type="Script" id=30]
 
 [sub_resource type="Animation" id=12]
 resource_name = "CaramelShot"
@@ -433,6 +436,11 @@ tracks/15/keys = {
 "values": [ false ]
 }
 
+[sub_resource type="DynamicFont" id=15]
+size = 70
+use_filter = true
+font_data = ExtResource( 29 )
+
 [node name="CoffeeMachine" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -728,6 +736,20 @@ margin_left = -48.0
 margin_top = -436.0
 margin_right = -734.0
 margin_bottom = -558.0
+
+[node name="Clock" type="Sprite" parent="."]
+position = Vector2( -124, -426 )
+texture = ExtResource( 28 )
+script = ExtResource( 30 )
+
+[node name="Label" type="Label" parent="Clock"]
+margin_left = -72.0
+margin_top = -12.0
+margin_right = 88.0
+margin_bottom = 46.0
+grow_horizontal = 2
+custom_fonts/font = SubResource( 15 )
+text = "00:00"
 
 [connection signal="pressed" from="MilkController" to="." method="_on_MilkController_pressed"]
 [connection signal="pressed" from="CoffeeMilkMachine/Coffee/CupOpenedGhost" to="." method="_on_CoffeeMachineCupOpenedGhost_pressed"]
