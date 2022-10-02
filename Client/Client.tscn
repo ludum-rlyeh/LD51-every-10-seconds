@@ -4,5 +4,8 @@
 [ext_resource path="res://Client/client.svg" type="Texture" id=3]
 
 [node name="Client" type="TextureButton"]
+margin_top = -476.0
+margin_right = 224.0
+rect_pivot_offset = Vector2( 0, 476 )
 texture_normal = ExtResource( 3 )
 script = ExtResource( 2 )
