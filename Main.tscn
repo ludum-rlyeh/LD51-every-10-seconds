@@ -7,5 +7,4 @@
 script = ExtResource( 1 )
 
 [node name="CupCommand" parent="." instance=ExtResource( 2 )]
-visible = false
 position = Vector2( 473, 293 )
