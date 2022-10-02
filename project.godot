@@ -8,6 +8,16 @@
 
 config_version=4
 
+_global_script_classes=[ {
+"base": "Node",
+"class": "LoopTimer",
+"language": "GDScript",
+"path": "res://CoffeeShop/LoopTimer.gd"
+} ]
+_global_script_class_icons={
+"LoopTimer": ""
+}
+
 [application]
 
 config/name="Ld 51 -every- 10 -seconds"
