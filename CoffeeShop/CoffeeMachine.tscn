@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=2]
+[gd_scene load_steps=36 format=2]
 
 [ext_resource path="res://CoffeeMachine/CoffeeMachine.gd" type="Script" id=1]
 [ext_resource path="res://CoffeeMachine/CoffeeContainerFull.svg" type="Texture" id=2]
@@ -26,6 +26,7 @@
 [ext_resource path="res://CoffeeMachine/NutsSirop.svg" type="Texture" id=24]
 [ext_resource path="res://CoffeeMachine/Sirop.gd" type="Script" id=25]
 [ext_resource path="res://CoffeeMachine/Hand.svg" type="Texture" id=26]
+[ext_resource path="res://Receipe/Receipe.tscn" type="PackedScene" id=27]
 
 [sub_resource type="Animation" id=12]
 resource_name = "CaramelShot"
@@ -715,6 +716,20 @@ margin_top = 287.0
 margin_right = 391.0
 margin_bottom = 498.0
 
+[node name="ReceipesLittle" parent="." instance=ExtResource( 27 )]
+margin_left = -764.0
+margin_top = 538.0
+margin_right = -1450.0
+margin_bottom = 416.0
+
+[node name="ReceipesBig" parent="." instance=ExtResource( 27 )]
+visible = false
+margin_left = -48.0
+margin_top = -436.0
+margin_right = -734.0
+margin_bottom = -558.0
+rect_scale = Vector2( 2, 2 )
+
 [connection signal="pressed" from="MilkController" to="." method="_on_MilkController_pressed"]
 [connection signal="pressed" from="CoffeeMilkMachine/Coffee/CupOpenedGhost" to="." method="_on_CoffeeMachineCupOpenedGhost_pressed"]
 [connection signal="pressed" from="CoffeeMilkMachine/Coffee/RistrettoButton" to="." method="_on_Ristretto_pressed"]
@@ -738,3 +753,5 @@ margin_bottom = 498.0
 [connection signal="pressed" from="CoffeeContainerGhost" to="." method="_on_CoffeeContainer_pressed"]
 [connection signal="pressed" from="CupOpenedGhost" to="." method="_on_CupOpenedGhost_pressed"]
 [connection signal="pressed" from="MilkPotGhost" to="." method="_on_MilkPotGhost_pressed"]
+[connection signal="pressed" from="ReceipesLittle" to="." method="_on_ReceipesLittle_pressed"]
+[connection signal="pressed" from="ReceipesBig" to="." method="_on_ReceipesBig_pressed"]

@@ -9,7 +9,6 @@ var command = "Expresso"
 func _ready():
 	command["base"] = Global.receipes.keys()[randi() % Global.receipes.keys().size()]
 
-
 func receive_cup(cupServed) -> bool:
 	var wantedReceipe = Global.receipes["base"]
 	print(cupServed)
