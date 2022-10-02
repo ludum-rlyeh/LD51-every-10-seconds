@@ -45,8 +45,8 @@ var gm_name = "Alin"
 func _ready():
 	# Set appearance
 	var i = randi() % appearance.size()
-	self.texture_normal = appearance[i]
-	self.gm_name = gm_names[i]
+	self.texture_normal = appearance[7]
+	self.gm_name = gm_names[7]
 	
 	# Generate command
 	command = Global.receipes.keys()[randi() % Global.receipes.keys().size()]

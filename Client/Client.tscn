@@ -4,8 +4,14 @@
 [ext_resource path="res://Client/client.svg" type="Texture" id=3]
 
 [node name="Client" type="TextureButton"]
-margin_top = -476.0
+margin_top = -479.0
 margin_right = 224.0
-rect_pivot_offset = Vector2( 0, 476 )
+margin_bottom = -3.0
+grow_horizontal = 0
+grow_vertical = 0
+rect_pivot_offset = Vector2( -532, 148 )
+size_flags_horizontal = 8
+size_flags_vertical = 8
 texture_normal = ExtResource( 3 )
+stretch_mode = 2
 script = ExtResource( 2 )
