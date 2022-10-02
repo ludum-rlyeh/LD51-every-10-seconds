@@ -1,5 +1,9 @@
 extends Node
 
+signal loop_time_out
+signal succeed_orders_changed
+signal failed_orders_changed
+
 var receipes = {
 	"Ristretto": {
 		"coffee": 2.5, # ml
@@ -69,5 +73,14 @@ var receipes = {
 
 var cup_selected = null
 
-var nb_order_succeed = 0 
-var nb_order_failed = 0 
+var nb_succeed_orders = 0 
+var nb_failed_orders = 0 
+
+func increase_succeed_orders():
+	nb_succeed_orders += 1
+	emit_signal("succeed_orders_changed", nb_succeed_orders)
+	
+func increase_failed_orders():
+	nb_failed_orders += 1
+	emit_signal("failed_orders_changed", nb_failed_orders)
+
