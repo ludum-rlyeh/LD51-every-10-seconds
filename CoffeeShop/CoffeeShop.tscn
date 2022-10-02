@@ -92,13 +92,6 @@ script = ExtResource( 5 )
 [node name="CupsOrders" parent="." instance=ExtResource( 1 )]
 position = Vector2( -1025, -301 )
 
-[node name="Next" type="TextureButton" parent="CupsOrders"]
-margin_left = 915.0
-margin_top = 240.0
-margin_right = 1025.0
-margin_bottom = 367.0
-texture_normal = ExtResource( 6 )
-
 [node name="CoffeeMachine" parent="." instance=ExtResource( 3 )]
 
 [node name="Next" type="TextureButton" parent="CoffeeMachine"]
@@ -125,16 +118,17 @@ anims/MoveCameraToPreparation = SubResource( 3 )
 anims/RESET = SubResource( 4 )
 
 [node name="Clients" parent="." instance=ExtResource( 2 )]
-position = Vector2( 465, -351 )
+position = Vector2( 0, -611 )
 
 [node name="Next" type="TextureButton" parent="Clients"]
-margin_left = -457.0
-margin_top = -65.0
-margin_right = -347.0
-margin_bottom = 62.0
+margin_left = 3.0
+margin_top = 205.0
+margin_right = 113.0
+margin_bottom = 332.0
 texture_normal = ExtResource( 6 )
 flip_h = true
 
-[connection signal="pressed" from="CupsOrders/Next" to="." method="_on_CupPreparationNext_pressed"]
+[connection signal="preparation_started" from="CupsOrders" to="." method="_on_CupsOrders_preparation_started"]
 [connection signal="pressed" from="CoffeeMachine/Next" to="." method="_on_ClientNext_pressed"]
+[connection signal="client_selected" from="Clients" to="." method="_on_Clients_client_selected"]
 [connection signal="pressed" from="Clients/Next" to="." method="_on_CupsOrdersNext_pressed"]

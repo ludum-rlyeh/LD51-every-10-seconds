@@ -66,3 +66,8 @@ var receipes = {
 		"chocolate sirop": 1 # shot
 	}
 }
+
+var cup_selected = null
+
+var nb_order_succeed = 0 
+var nb_order_failed = 0 

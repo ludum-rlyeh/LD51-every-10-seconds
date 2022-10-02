@@ -1,10 +1,8 @@
 [gd_scene load_steps=3 format=2]
 
-[ext_resource path="res://Client/client.svg" type="Texture" id=1]
 [ext_resource path="res://Client/Client.gd" type="Script" id=2]
+[ext_resource path="res://Client/client_base1.svg" type="Texture" id=3]
 
-[node name="Client" type="Node2D"]
+[node name="Client" type="TextureButton"]
+texture_normal = ExtResource( 3 )
 script = ExtResource( 2 )
-
-[node name="Sprite" type="Sprite" parent="."]
-texture = ExtResource( 1 )

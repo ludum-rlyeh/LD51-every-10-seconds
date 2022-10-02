@@ -1,4 +1,4 @@
-extends Node2D
+extends TextureButton
 
 export var real_name = "Adrian"
 export var gm_name = "Alian"
@@ -18,7 +18,7 @@ func _ready():
 	command["extraGlass"] = bool(randi() % 2)
 
 
-func receive_cup(cupServed):
+func receive_cup(cupServed) -> bool:
 	var wantedReceipe = Global.receipes[command["base"]]
 	var nb_elements_ok = wantedReceipe.keys().size()
 	for key in wantedReceipe:
@@ -26,6 +26,7 @@ func receive_cup(cupServed):
 			if cupServed[key] != wantedReceipe[key]:
 				nb_elements_ok =- 1
 	generate_emotion(nb_elements_ok)
+	return nb_elements_ok == wantedReceipe.keys().size()
 
 func generate_emotion(nb_elements_ok):
 	pass
