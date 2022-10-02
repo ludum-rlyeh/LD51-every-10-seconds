@@ -1,6 +1,6 @@
 extends TextureButton
 
-var held = false
+var on_table = false
 
 var locked = false
 

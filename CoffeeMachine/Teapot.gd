@@ -4,8 +4,6 @@ var locked = false
 var filled = false
 var hot = false
 
-var held = false
-
 func lock():
 	locked = true
 

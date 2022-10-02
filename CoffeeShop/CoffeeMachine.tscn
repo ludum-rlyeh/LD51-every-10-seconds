@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=2]
+[gd_scene load_steps=34 format=2]
 
 [ext_resource path="res://CoffeeMachine/CoffeeMachine.gd" type="Script" id=1]
 [ext_resource path="res://CoffeeMachine/CoffeeContainerFull.svg" type="Texture" id=2]
@@ -16,10 +16,71 @@
 [ext_resource path="res://CoffeeMachine/CupOpenedGhost.tscn" type="PackedScene" id=14]
 [ext_resource path="res://Cup/CupButton.tscn" type="PackedScene" id=15]
 [ext_resource path="res://CoffeeMachine/MilkPotGhost.tscn" type="PackedScene" id=16]
-[ext_resource path="res://CoffeeShop/CoffeeSmasherMachine.gd" type="Script" id=17]
-[ext_resource path="res://CoffeeShop/CoffeeMilkMachine.gd" type="Script" id=18]
-[ext_resource path="res://CoffeeShop/MilkMachine.gd" type="Script" id=19]
-[ext_resource path="res://CoffeeShop/Hand.gd" type="Script" id=20]
+[ext_resource path="res://CoffeeMachine/CoffeeSmasherMachine.gd" type="Script" id=17]
+[ext_resource path="res://CoffeeMachine/CoffeeMilkMachine.gd" type="Script" id=18]
+[ext_resource path="res://CoffeeMachine/MilkMachine.gd" type="Script" id=19]
+[ext_resource path="res://CoffeeMachine/Hand.gd" type="Script" id=20]
+[ext_resource path="res://CoffeeMachine/bouchon.svg" type="Texture" id=21]
+[ext_resource path="res://CoffeeMachine/CaramelSirop.svg" type="Texture" id=22]
+[ext_resource path="res://CoffeeMachine/ChocolateSirop.svg" type="Texture" id=23]
+[ext_resource path="res://CoffeeMachine/NutsSirop.svg" type="Texture" id=24]
+[ext_resource path="res://CoffeeMachine/Sirop.gd" type="Script" id=25]
+
+[sub_resource type="Animation" id=12]
+resource_name = "CaramelShot"
+length = 0.6
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sirops/CaramelTextureProgress:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.6 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Sirops/CaramelTextureProgress:value")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.6 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 0.0, 100.0 ]
+}
+
+[sub_resource type="Animation" id=13]
+resource_name = "ChocolateShot"
+length = 0.6
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sirops/ChocolateTextureProgress:value")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.6 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 0.0, 100.0 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Sirops/ChocolateTextureProgress:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.6 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
 
 [sub_resource type="Animation" id=11]
 resource_name = "CoffeeFill"
@@ -178,6 +239,34 @@ tracks/4/keys = {
 } ]
 }
 
+[sub_resource type="Animation" id=14]
+resource_name = "NutsShot"
+length = 0.6
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sirops/NutsTextureProgress:value")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.6 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 0.0, 100.0 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Sirops/NutsTextureProgress:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.6 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+
 [sub_resource type="Animation" id=8]
 length = 0.001
 tracks/0/type = "value"
@@ -300,6 +389,78 @@ tracks/9/keys = {
 "update": 0,
 "values": [ false ]
 }
+tracks/10/type = "value"
+tracks/10/path = NodePath("Sirops/CaramelTextureProgress:visible")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ false ]
+}
+tracks/11/type = "value"
+tracks/11/path = NodePath("Sirops/CaramelTextureProgress:value")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0.0 ]
+}
+tracks/12/type = "value"
+tracks/12/path = NodePath("Sirops/ChocolateTextureProgress:value")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0.0 ]
+}
+tracks/13/type = "value"
+tracks/13/path = NodePath("Sirops/ChocolateTextureProgress:visible")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ false ]
+}
+tracks/14/type = "value"
+tracks/14/path = NodePath("Sirops/NutsTextureProgress:value")
+tracks/14/interp = 1
+tracks/14/loop_wrap = true
+tracks/14/imported = false
+tracks/14/enabled = true
+tracks/14/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0.0 ]
+}
+tracks/15/type = "value"
+tracks/15/path = NodePath("Sirops/NutsTextureProgress:visible")
+tracks/15/interp = 1
+tracks/15/loop_wrap = true
+tracks/15/imported = false
+tracks/15/enabled = true
+tracks/15/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ false ]
+}
 
 [node name="CoffeeMachine" type="Control"]
 anchor_right = 1.0
@@ -312,15 +473,15 @@ rect_scale = Vector2( 0.5, 0.5 )
 script = ExtResource( 1 )
 
 [node name="MilkController" type="TextureButton" parent="."]
-margin_left = 298.0
+margin_left = 184.0
 margin_top = -459.0
-margin_right = 338.0
+margin_right = 224.0
 margin_bottom = -228.0
 rect_pivot_offset = Vector2( 21, 226 )
 texture_normal = ExtResource( 4 )
 
 [node name="CoffeeMilkMachine" type="Sprite" parent="."]
-position = Vector2( -690, -210 )
+position = Vector2( -804, -210 )
 texture = ExtResource( 8 )
 offset = Vector2( 690, 210 )
 script = ExtResource( 18 )
@@ -329,29 +490,29 @@ script = ExtResource( 18 )
 
 [node name="CupOpenedGhost" parent="CoffeeMilkMachine/Coffee" groups=["CupOpenedGhost"] instance=ExtResource( 14 )]
 modulate = Color( 1, 1, 1, 0.25098 )
-margin_left = 510.0
+margin_left = 512.5
 margin_top = 232.0
-margin_right = 637.0
+margin_right = 639.5
 margin_bottom = 408.0
 
 [node name="RistrettoButton" type="Button" parent="CoffeeMilkMachine/Coffee"]
-margin_left = 494.0
+margin_left = 496.5
 margin_top = -4.0
-margin_right = 536.0
+margin_right = 538.5
 margin_bottom = 38.0
 flat = true
 
 [node name="ExpressoButton" type="Button" parent="CoffeeMilkMachine/Coffee"]
-margin_left = 556.0
+margin_left = 558.5
 margin_top = -4.0
-margin_right = 598.0
+margin_right = 600.5
 margin_bottom = 38.0
 flat = true
 
 [node name="LungoButton" type="Button" parent="CoffeeMilkMachine/Coffee"]
-margin_left = 620.0
+margin_left = 622.5
 margin_top = -4.0
-margin_right = 662.0
+margin_right = 664.5
 margin_bottom = 38.0
 flat = true
 
@@ -371,7 +532,7 @@ margin_bottom = 213.0
 [node name="Milk" type="Node2D" parent="CoffeeMilkMachine"]
 
 [node name="Needle" type="Sprite" parent="CoffeeMilkMachine/Milk"]
-position = Vector2( 833, -24 )
+position = Vector2( 835.5, -24 )
 texture = ExtResource( 6 )
 
 [node name="TextureProgress" parent="CoffeeMilkMachine/Milk" instance=ExtResource( 10 )]
@@ -386,13 +547,13 @@ __meta__ = {
 }
 
 [node name="MilkPotGhost" parent="CoffeeMilkMachine/Milk" groups=["MilkPotGhost"] instance=ExtResource( 16 )]
-margin_left = 740.0
+margin_left = 742.5
 margin_top = 188.0
-margin_right = 983.0
+margin_right = 985.5
 margin_bottom = 399.0
 
 [node name="CoffeeSmasherMachine" type="Sprite" parent="."]
-position = Vector2( -482, 9 )
+position = Vector2( -598.5, 9 )
 texture = ExtResource( 9 )
 script = ExtResource( 17 )
 
@@ -406,9 +567,9 @@ margin_bottom = 177.0
 [node name="CoffeeContainerGhost" parent="CoffeeSmasherMachine" groups=["CoffeeContainerGhost"] instance=ExtResource( 13 )]
 
 [node name="MilkMachine" type="TextureButton" parent="."]
-margin_left = 518.0
+margin_left = 252.0
 margin_top = -360.0
-margin_right = 899.0
+margin_right = 633.0
 margin_bottom = 344.0
 texture_normal = ExtResource( 3 )
 script = ExtResource( 19 )
@@ -433,11 +594,95 @@ margin_top = 538.0
 margin_right = 345.0
 margin_bottom = 749.0
 
+[node name="Sirops" type="Node2D" parent="."]
+position = Vector2( -49.5, 0 )
+
+[node name="CaramelSirop" type="TextureButton" parent="Sirops"]
+margin_left = 728.0
+margin_top = -172.0
+margin_right = 893.0
+margin_bottom = 343.0
+texture_normal = ExtResource( 22 )
+script = ExtResource( 25 )
+
+[node name="Bouchon" type="Sprite" parent="Sirops/CaramelSirop"]
+position = Vector2( 64, -36 )
+texture = ExtResource( 21 )
+
+[node name="CupOpenedGhost" parent="Sirops/CaramelSirop" groups=["CupOpenedGhost"] instance=ExtResource( 14 )]
+modulate = Color( 1, 1, 1, 0.25098 )
+margin_left = -18.0
+margin_top = 390.0
+margin_right = 109.0
+margin_bottom = 566.0
+
+[node name="NutsSirop" type="TextureButton" parent="Sirops"]
+margin_left = 908.0
+margin_top = -172.0
+margin_right = 1073.0
+margin_bottom = 344.0
+texture_normal = ExtResource( 24 )
+script = ExtResource( 25 )
+
+[node name="CupOpenedGhost" parent="Sirops/NutsSirop" groups=["CupOpenedGhost"] instance=ExtResource( 14 )]
+modulate = Color( 1, 1, 1, 0.25098 )
+margin_left = -10.0
+margin_top = 390.0
+margin_right = 117.0
+margin_bottom = 566.0
+
+[node name="Bouchon" type="Sprite" parent="Sirops/NutsSirop"]
+position = Vector2( 62, -36 )
+texture = ExtResource( 21 )
+
+[node name="ChocolateSirop" type="TextureButton" parent="Sirops"]
+margin_left = 1090.0
+margin_top = -168.0
+margin_right = 1255.0
+margin_bottom = 350.0
+texture_normal = ExtResource( 23 )
+script = ExtResource( 25 )
+
+[node name="CupOpenedGhost" parent="Sirops/ChocolateSirop" groups=["CupOpenedGhost"] instance=ExtResource( 14 )]
+modulate = Color( 1, 1, 1, 0.25098 )
+margin_left = -22.0
+margin_top = 386.0
+margin_right = 105.0
+margin_bottom = 562.0
+
+[node name="Bouchon" type="Sprite" parent="Sirops/ChocolateSirop"]
+position = Vector2( 64, -36 )
+texture = ExtResource( 21 )
+
+[node name="CaramelTextureProgress" parent="Sirops" instance=ExtResource( 10 )]
+visible = false
+margin_left = 657.5
+margin_top = -12.0
+margin_right = 979.5
+margin_bottom = 20.0
+value = 0.0
+
+[node name="NutsTextureProgress" parent="Sirops" instance=ExtResource( 10 )]
+visible = false
+margin_left = 823.5
+margin_top = -12.0
+margin_right = 1145.5
+margin_bottom = 20.0
+value = 0.0
+
+[node name="ChocolateTextureProgress" parent="Sirops" instance=ExtResource( 10 )]
+visible = false
+margin_left = 995.5
+margin_top = -12.0
+margin_right = 1317.5
+margin_bottom = 20.0
+value = 0.0
+
 [node name="CupOpened" parent="." instance=ExtResource( 15 )]
-margin_left = 554.0
-margin_top = 332.0
-margin_right = 681.0
-margin_bottom = 508.0
+margin_left = 486.0
+margin_top = 404.0
+margin_right = 613.0
+margin_bottom = 580.0
 
 [node name="CoffeeContainer" type="TextureButton" parent="."]
 margin_left = -482.0
@@ -450,8 +695,11 @@ script = ExtResource( 12 )
 
 [node name="Full" type="Sprite" parent="CoffeeContainer"]
 visible = false
-position = Vector2( 280, 2 )
+position = Vector2( 274, 2 )
 texture = ExtResource( 2 )
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="MilkPot" type="TextureButton" parent="."]
 margin_left = 146.0
@@ -462,10 +710,13 @@ texture_normal = ExtResource( 5 )
 script = ExtResource( 11 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/CaramelShot = SubResource( 12 )
+anims/ChocolateShot = SubResource( 13 )
 anims/CoffeeFill = SubResource( 11 )
 anims/CoffeeSmash = SubResource( 10 )
 anims/FillMilk = SubResource( 7 )
 anims/HeatMilk = SubResource( 9 )
+anims/NutsShot = SubResource( 14 )
 anims/RESET = SubResource( 8 )
 
 [node name="Hand" type="Sprite" parent="."]
@@ -477,6 +728,13 @@ margin_left = -482.0
 margin_top = 408.0
 margin_right = -127.0
 margin_bottom = 509.0
+
+[node name="CupOpenedGhost" parent="." groups=["CupOpenedGhost"] instance=ExtResource( 14 )]
+modulate = Color( 1, 1, 1, 0.25098 )
+margin_left = 488.0
+margin_top = 400.0
+margin_right = 615.0
+margin_bottom = 576.0
 
 [node name="MilkPotGhost" parent="." groups=["MilkPotGhost"] instance=ExtResource( 16 )]
 margin_left = 148.0
@@ -495,8 +753,15 @@ margin_bottom = 559.0
 [connection signal="pressed" from="MilkMachine" to="." method="_on_Milk_pressed"]
 [connection signal="pressed" from="MilkMachine/CupOpenedGhost" to="." method="_on_MilkMachineCupOpenedGhost_pressed"]
 [connection signal="pressed" from="MilkMachine/MilkPotGhost" to="." method="_on_MilkMachineMilkPotGhost_pressed"]
+[connection signal="pressed" from="Sirops/CaramelSirop" to="." method="_on_CaramelSirop_pressed"]
+[connection signal="pressed" from="Sirops/CaramelSirop/CupOpenedGhost" to="." method="_on_CaramelCupOpenedGhost_pressed"]
+[connection signal="pressed" from="Sirops/NutsSirop" to="." method="_on_NutsSirop_pressed"]
+[connection signal="pressed" from="Sirops/NutsSirop/CupOpenedGhost" to="." method="_on_NutsCupOpenedGhost_pressed"]
+[connection signal="pressed" from="Sirops/ChocolateSirop" to="." method="_on_ChocolateSirop_pressed"]
+[connection signal="pressed" from="Sirops/ChocolateSirop/CupOpenedGhost" to="." method="_on_ChocolateCupOpenedGhost_pressed"]
 [connection signal="pressed" from="CupOpened" to="." method="_on_CupOpened_pressed"]
 [connection signal="pressed" from="CoffeeContainer" to="." method="_on_CoffeeContainer_pressed"]
 [connection signal="pressed" from="MilkPot" to="." method="_on_MilkPot_pressed"]
-[connection signal="pressed" from="CoffeeContainerGhost" to="." method="_on_CoffeeContainerGhost_pressed"]
+[connection signal="pressed" from="CoffeeContainerGhost" to="." method="_on_CoffeeContainer_pressed"]
+[connection signal="pressed" from="CupOpenedGhost" to="." method="_on_CupOpenedGhost_pressed"]
 [connection signal="pressed" from="MilkPotGhost" to="." method="_on_MilkPotGhost_pressed"]

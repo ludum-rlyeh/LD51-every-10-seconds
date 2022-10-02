@@ -1,6 +1,5 @@
 extends TextureButton
 
-var held = false
 var locked = false
 var full = false
 
