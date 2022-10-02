@@ -152,6 +152,7 @@ position = Vector2( 0, -611 )
 [node name="LoopTimer" type="Node" parent="."]
 script = ExtResource( 8 )
 
+[connection signal="cup_picked" from="CupsOrders" to="." method="_on_CupsOrders_cup_picked"]
 [connection signal="preparation_started" from="CupsOrders" to="." method="_on_CupsOrders_preparation_started"]
 [connection signal="pressed" from="CoffeeMachine/Next" to="." method="_on_ClientNext_pressed"]
 [connection signal="client_selected" from="Clients" to="." method="_on_Clients_client_selected"]

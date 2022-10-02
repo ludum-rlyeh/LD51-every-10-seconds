@@ -4,11 +4,13 @@ var _initial_position_coffee_container
 var _initial_position_milkpot
 var _initial_position_cup
 
+func get_cup_content():
+	return $CupOpened.content
+
 func _ready():
 	_initial_position_coffee_container = $CoffeeContainer.rect_global_position
 	_initial_position_milkpot = $MilkPot.rect_global_position
 	_initial_position_cup = $CupOpened.rect_global_position
-	$CupOpened.on_table = true
 	get_tree().call_group("CoffeeContainerGhost", "hide")
 	get_tree().call_group("MilkPotGhost", "hide")
 	get_tree().call_group("CupOpenedGhost", "hide")

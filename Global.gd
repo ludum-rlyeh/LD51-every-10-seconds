@@ -18,7 +18,7 @@ var receipes = {
 		"caramel sirop": 0, # shot
 		"chocolate sirop": 0 # shot
 	},
-	"Expresso": {
+	"Espresso": {
 		"coffee": espresso_water_quantity, # ml
 		"hot milk": 0, # ml
 		"cold milk": 0, # ml
@@ -75,9 +75,7 @@ var receipes = {
 		"chocolate sirop": 1 # shot
 	}
 }
-
-var cup_selected = null
-
+var client_selected = null
 var nb_succeed_orders = 0 
 var nb_failed_orders = 0 
 
