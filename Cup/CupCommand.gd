@@ -6,4 +6,4 @@ func _ready():
 
 func set_command(gm_name, command):
 	$Client/Name.text = gm_name
-	$Command/Name.text = command["base"]
+	$Command/Name.text = command
