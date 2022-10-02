@@ -7,6 +7,3 @@ func _ready():
 func set_command(gm_name, command):
 	$Client/Name.text = gm_name
 	$Command/Name.text = command["base"]
-	$ExtraSugar/CheckBox.visible = command["extraSugar"]
-	$ExtraCream/CheckBox.visible = command["extraCream"]
-	$ExtraIce/CheckBox.visible = command["extraGlass"]
