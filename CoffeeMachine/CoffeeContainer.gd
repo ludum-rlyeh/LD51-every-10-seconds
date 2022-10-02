@@ -8,3 +8,7 @@ func lock():
 
 func unlock():
 	locked = false
+	
+func reinit():
+	locked = false
+	full = false
