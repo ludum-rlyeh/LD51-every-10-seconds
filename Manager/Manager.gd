@@ -14,4 +14,5 @@ func _on_Sprite_pressed():
 	$Sprite/CoffeeMark.visible = true
 	$AnimationPlayer.play("angry")
 	$AudioStreamPlayer.play()
-	# TODO: ENDING
+	# TODO: yield animation ending
+	# TODO: connect to go outside

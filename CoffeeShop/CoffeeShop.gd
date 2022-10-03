@@ -29,3 +29,9 @@ func _on_LoopTimer_time_out() -> void:
 func _on_return_pressed():
 	$AnimationPlayer.play("FromManagerToPreparation")
 	$CoffeeMachine/Next.show()
+
+
+func _on_OutDoor_pressed():
+	# TODO: Stop everythings
+	# TODO: Animation
+	Global.emit_signal("go_out")

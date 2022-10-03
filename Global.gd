@@ -3,6 +3,7 @@ extends Node
 signal loop_time_out
 signal succeed_orders_changed
 signal failed_orders_changed
+signal go_out
 
 const ristretto_water_quantity = 25
 const espresso_water_quantity = 40

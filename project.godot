@@ -21,12 +21,16 @@ _global_script_class_icons={
 [application]
 
 config/name="Ld 51 -every- 10 -seconds"
-run/main_scene="res://CoffeeShop/CoffeeShop.tscn"
+run/main_scene="res://Main.tscn"
 config/icon="res://icon.png"
 
 [autoload]
 
 Global="*res://Global.gd"
+
+[display]
+
+window/size/resizable=false
 
 [gui]
 
