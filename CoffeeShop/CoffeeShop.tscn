@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=2]
+[gd_scene load_steps=34 format=2]
 
 [ext_resource path="res://CupsOrders/CupsOrders.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Clients/Clients.tscn" type="PackedScene" id=2]
@@ -19,6 +19,8 @@
 [ext_resource path="res://CoffeeShop/Let_the_dog_run_-_Stefan_Kartenberg.mp3" type="AudioStream" id=17]
 [ext_resource path="res://CoffeeShop/woosh.wav" type="AudioStream" id=18]
 [ext_resource path="res://CoffeeMachine/take.wav" type="AudioStream" id=19]
+[ext_resource path="res://CoffeeShop/VSlider.gd" type="Script" id=20]
+[ext_resource path="res://Common/speaker.svg" type="Texture" id=21]
 
 [sub_resource type="AudioStreamRandomPitch" id=12]
 audio_stream = ExtResource( 19 )
@@ -306,22 +308,38 @@ custom_styles/normal = SubResource( 7 )
 text = "-->"
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
-visible = false
 script = ExtResource( 7 )
 
 [node name="Timer" type="Label" parent="CanvasLayer"]
+visible = false
 margin_right = 40.0
 margin_bottom = 14.0
 
 [node name="SucceedOrders" type="Label" parent="CanvasLayer"]
+visible = false
 margin_top = 20.0
 margin_right = 40.0
 margin_bottom = 34.0
 
 [node name="FailedOrders" type="Label" parent="CanvasLayer"]
+visible = false
 margin_top = 39.0
 margin_right = 40.0
 margin_bottom = 53.0
+
+[node name="VSlider" type="VSlider" parent="CanvasLayer"]
+margin_left = 8.0
+margin_top = 29.0
+margin_right = 24.0
+margin_bottom = 142.0
+max_value = 1.0
+step = 0.2
+script = ExtResource( 20 )
+
+[node name="Speaker" type="Sprite" parent="CanvasLayer"]
+position = Vector2( 19, 17 )
+scale = Vector2( 0.219027, 0.219027 )
+texture = ExtResource( 21 )
 
 [node name="CoffeeMachine" parent="." instance=ExtResource( 3 )]
 
@@ -418,6 +436,7 @@ bus = "SFX"
 [connection signal="preparation_started" from="CupsOrders" to="." method="_on_preparation_started"]
 [connection signal="preparation_started" from="CupsOrders" to="ClientsOrderingQueue" method="_on_command_prepared"]
 [connection signal="pressed" from="CupsOrders/toPreparation" to="." method="_on_toPreparation_pressed"]
+[connection signal="value_changed" from="CanvasLayer/VSlider" to="CanvasLayer/VSlider" method="_on_VSlider_value_changed"]
 [connection signal="pressed" from="CoffeeMachine/Next" to="." method="_on_ClientNext_pressed"]
 [connection signal="pressed" from="CoffeeMachine/toCups" to="." method="_on_toCups_pressed"]
 [connection signal="pressed" from="Manager/return" to="." method="_on_return_pressed"]
