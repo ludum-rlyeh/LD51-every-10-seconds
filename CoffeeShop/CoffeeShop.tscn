@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=2]
+[gd_scene load_steps=25 format=2]
 
 [ext_resource path="res://CupsOrders/CupsOrders.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Clients/Clients.tscn" type="PackedScene" id=2]
@@ -30,6 +30,22 @@ border_width_top = 2
 border_width_right = 2
 border_width_bottom = 2
 border_color = Color( 0, 0, 0, 1 )
+
+[sub_resource type="Animation" id=10]
+resource_name = "FromManagerToPreparation"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/path = NodePath("Camera2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1572, -41 ), Vector2( 512, 233 ) ]
+}
 
 [sub_resource type="Animation" id=1]
 resource_name = "MoveCameraToClient"
@@ -76,7 +92,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0, 0.2 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
-"values": [ Vector2( 512, 301 ), Vector2( 1260, 301 ) ]
+"values": [ Vector2( 512, 301 ), Vector2( 1572, -41 ) ]
 }
 
 [sub_resource type="Animation" id=3]
@@ -141,7 +157,7 @@ position = Vector2( 185, 232 )
 texture = ExtResource( 10 )
 
 [node name="CupsOrders" parent="." instance=ExtResource( 1 )]
-position = Vector2( -883, -202 )
+position = Vector2( -883, -204 )
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 script = ExtResource( 7 )
@@ -174,13 +190,25 @@ custom_styles/normal = SubResource( 7 )
 text = "CUP READY"
 
 [node name="Manager" parent="." instance=ExtResource( 4 )]
-position = Vector2( 1782, 211 )
+position = Vector2( 1426, -253 )
+
+[node name="return" type="Button" parent="Manager"]
+margin_left = -209.0
+margin_top = 270.0
+margin_right = -116.0
+margin_bottom = 341.0
+rect_scale = Vector2( 1.5, 1.5 )
+custom_fonts/font = SubResource( 6 )
+custom_styles/hover = SubResource( 8 )
+custom_styles/normal = SubResource( 7 )
+text = "<--"
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2( -516, -2 )
 current = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/FromManagerToPreparation = SubResource( 10 )
 anims/MoveCameraToClient = SubResource( 1 )
 anims/MoveCameraToCups = SubResource( 5 )
 anims/MoveCameraToManager = SubResource( 2 )
@@ -220,6 +248,7 @@ text = "0"
 [connection signal="preparation_started" from="CupsOrders" to="." method="_on_preparation_started"]
 [connection signal="preparation_started" from="CupsOrders" to="ClientsOrderingQueue" method="_on_command_prepared"]
 [connection signal="pressed" from="CoffeeMachine/Next" to="." method="_on_ClientNext_pressed"]
+[connection signal="pressed" from="Manager/return" to="." method="_on_return_pressed"]
 [connection signal="time_changed" from="LoopTimer" to="CanvasLayer" method="_on_LoopTimer_time_changed"]
 [connection signal="time_changed" from="LoopTimer" to="CoffeeMachine" method="_on_LoopTimer_time_changed"]
 [connection signal="time_out" from="LoopTimer" to="." method="_on_LoopTimer_time_out"]

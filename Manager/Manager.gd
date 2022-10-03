@@ -1,16 +1,17 @@
 extends Node2D
 
-
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
-
-
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
+	Global.connect("loop_time_out", self, "on_timer_out")
 
 
-func on_timer_ended():
-	# ANGRY ANIMATION
-	pass
+func on_timer_out():
+	$AnimationPlayer.play("angry")
+	$AudioStreamPlayer.play()
+
+
+func _on_Sprite_pressed():
+	$Sprite/CoffeeMark.visible = true
+	$AnimationPlayer.play("angry")
+	$AudioStreamPlayer.play()
+	# TODO: ENDING

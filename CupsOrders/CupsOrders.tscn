@@ -8,9 +8,9 @@ script = ExtResource( 2 )
 
 [node name="CupsQueue" type="HBoxContainer" parent="."]
 margin_left = 289.0
-margin_top = 344.0
+margin_top = 311.0
 margin_right = 678.0
-margin_bottom = 469.0
+margin_bottom = 436.0
 rect_scale = Vector2( 0.5, 0.5 )
 
 [node name="CupCommand" parent="." instance=ExtResource( 1 )]

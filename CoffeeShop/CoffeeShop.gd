@@ -22,4 +22,10 @@ func _on_cup_given_to_client(client) -> void:
 	$LoopTimer.restart()
 
 func _on_LoopTimer_time_out() -> void:
-	pass # Replace with function body
+	$AnimationPlayer.play("MoveCameraToManager")
+	Global.emit_signal("loop_time_out")
+
+
+func _on_return_pressed():
+	$AnimationPlayer.play("FromManagerToPreparation")
+	$CoffeeMachine/Next.show()
