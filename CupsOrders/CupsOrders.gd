@@ -10,6 +10,7 @@ func _add_cup(client):
 	cup_instance.client = client
 	cup_instance.connect("pressed", self, "_on_cup_clicked", [cup_instance, client])
 	$CupsQueue.add_child(cup_instance)
+	$CupsQueue.move_child(cup_instance, 0)
 	
 func _on_cup_clicked(cup, client):
 	$CupCommand.set_command(client.gm_name, client.command)

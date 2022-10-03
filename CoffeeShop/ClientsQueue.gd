@@ -14,6 +14,7 @@ func _ready():
 func new_client():
 	var client_instance = _client_scene.instance()
 	add_child(client_instance)
+	move_child(client_instance, 0)
 	emit_signal("new_client", client_instance)
 
 func _on_client_picked(client):
