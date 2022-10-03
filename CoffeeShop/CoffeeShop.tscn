@@ -68,6 +68,20 @@ tracks/1/keys = {
 "method": "play"
 } ]
 }
+tracks/2/type = "method"
+tracks/2/path = NodePath("ClientsWaitingQueue")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "deactivate_client"
+} ]
+}
 
 [sub_resource type="Animation" id=1]
 resource_name = "MoveCameraToClient"
@@ -96,6 +110,20 @@ tracks/1/keys = {
 "values": [ {
 "args": [ 0.0 ],
 "method": "play"
+} ]
+}
+tracks/2/type = "method"
+tracks/2/path = NodePath("ClientsWaitingQueue")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "activate_client"
 } ]
 }
 
@@ -186,6 +214,20 @@ tracks/1/keys = {
 "values": [ {
 "args": [ 0.0 ],
 "method": "play"
+} ]
+}
+tracks/2/type = "method"
+tracks/2/path = NodePath("ClientsWaitingQueue")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "deactivate_client"
 } ]
 }
 
@@ -360,12 +402,12 @@ text = "0"
 
 [node name="BgMusic" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 17 )
+volume_db = -15.0
 autoplay = true
 bus = "BG"
 
 [node name="Transition" type="AudioStreamPlayer" parent="."]
 stream = SubResource( 11 )
-volume_db = 10.0
 bus = "SFX"
 
 [connection signal="pressed" from="OutDoor" to="." method="_on_OutDoor_pressed"]

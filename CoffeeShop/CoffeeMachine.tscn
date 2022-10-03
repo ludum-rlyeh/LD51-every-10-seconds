@@ -654,7 +654,6 @@ margin_bottom = 213.0
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="CoffeeMilkMachine/Coffee"]
 position = Vector2( 580, 170 )
 stream = SubResource( 17 )
-volume_db = 24.0
 bus = "SFX"
 
 [node name="Milk" type="Node2D" parent="CoffeeMilkMachine"]
@@ -702,7 +701,6 @@ margin_bottom = 177.0
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="CoffeeSmasherMachine"]
 position = Vector2( 0, 42 )
 stream = SubResource( 16 )
-volume_db = 24.0
 bus = "SFX"
 
 [node name="MilkMachine" type="TextureButton" parent="."]
@@ -736,7 +734,6 @@ margin_bottom = 749.0
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="MilkMachine"]
 position = Vector2( 192, 595 )
 stream = SubResource( 18 )
-volume_db = 24.0
 bus = "SFX"
 
 [node name="Sirops" type="Node2D" parent="."]
