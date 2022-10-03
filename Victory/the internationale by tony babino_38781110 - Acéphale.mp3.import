@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/the internationale by tony babino_38781110 - Acéphale.mp3-66dc73eb0bc75b4bdc1f028055f7a48b.mp3str"
+
+[deps]
+
+source_file="res://Victory/the internationale by tony babino_38781110 - Acéphale.mp3"
+dest_files=[ "res://.import/the internationale by tony babino_38781110 - Acéphale.mp3-66dc73eb0bc75b4bdc1f028055f7a48b.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0
