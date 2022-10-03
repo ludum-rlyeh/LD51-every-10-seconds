@@ -182,14 +182,19 @@ func _on_CupOpenedGhost_pressed() -> void:
 ### Click on tools
 
 func _on_CoffeeContainer_pressed() -> void:
+	if $CoffeeContainer.locked:
+		return
 	if not $Hand.take($CoffeeContainer):
 		return
 	$CoffeeMilkMachine.coffee_container = null
 	$CoffeeSmasherMachine.coffee_container = null
-	$CoffeeContainer.rect_global_position = $Hand.global_position
+	# fix position coffee container in hand
+	$CoffeeContainer.rect_global_position -= Vector2(90, -70)
 	get_tree().call_group("CoffeeContainerGhost", "show")
 
 func _on_MilkPot_pressed() -> void:
+	if $MilkPot.locked:
+		return
 	if not $Hand.take($MilkPot):
 		return
 	$MilkMachine.milk_pot = null
@@ -197,6 +202,8 @@ func _on_MilkPot_pressed() -> void:
 	get_tree().call_group("MilkPotGhost", "show")
 
 func _on_CupOpened_pressed() -> void:
+	if $CupOpened.locked:
+		return
 	if $Hand.has($MilkPot) and $MilkPot.filled:
 		if $MilkPot.hot:
 			$CupOpened.fill_hot_milk(Global.milk_quantity)
