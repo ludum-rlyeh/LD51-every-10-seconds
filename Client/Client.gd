@@ -1,5 +1,7 @@
 extends TextureButton
 
+signal reaction_ended
+
 var real_names = [
 	"Ellen",
 	"Steve",
@@ -60,8 +62,14 @@ func receive_cup(cupServed) -> bool:
 		if cupServed.has(key):
 			if cupServed[key] != wantedReceipe[key]:
 				nb_elements_ok -= 1
-	generate_emotion(nb_elements_ok)
-	return nb_elements_ok == wantedReceipe.keys().size()
+	var command_ok = nb_elements_ok == wantedReceipe.keys().size()
+	generate_emotion(command_ok)
+	return command_ok
 
-func generate_emotion(nb_elements_ok):
-	pass
+func generate_emotion(command_ok):
+	if command_ok:
+		$AnimationPlayer.play("happy")
+	else:
+		$AnimationPlayer.play("unhappy")
+	yield($AnimationPlayer, "animation_finished")
+	emit_signal("reaction_ended")

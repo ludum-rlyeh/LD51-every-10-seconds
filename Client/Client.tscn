@@ -1,12 +1,119 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=12 format=2]
 
+[ext_resource path="res://Client/happy.wav" type="AudioStream" id=1]
 [ext_resource path="res://Client/Client.gd" type="Script" id=2]
 [ext_resource path="res://Client/client.svg" type="Texture" id=3]
+[ext_resource path="res://Client/unhappy.wav" type="AudioStream" id=4]
+[ext_resource path="res://Common/angry_reaction.svg" type="Texture" id=5]
+[ext_resource path="res://Common/heart.svg" type="Texture" id=6]
+
+[sub_resource type="AudioStreamRandomPitch" id=1]
+audio_stream = ExtResource( 1 )
+
+[sub_resource type="AudioStreamRandomPitch" id=2]
+audio_stream = ExtResource( 4 )
+
+[sub_resource type="Animation" id=3]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:rect_position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 0, -542 ) ]
+}
+
+[sub_resource type="Animation" id=4]
+resource_name = "happy"
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:rect_position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2, 0.5, 0.7, 1 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ), Vector2( 0, -100 ), Vector2( 0, 0 ), Vector2( 0, -100 ), Vector2( 0, 0 ) ]
+}
+tracks/1/type = "method"
+tracks/1/path = NodePath("happy")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [ 0.0 ],
+"method": "play"
+} ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Sprite2:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0.1, 0.8 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+
+[sub_resource type="Animation" id=5]
+resource_name = "unhappy"
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:rect_position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2, 0.5, 0.7, 1 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ), Vector2( 0, -100 ), Vector2( 0, 0 ), Vector2( 0, -100 ), Vector2( 0, 0 ) ]
+}
+tracks/1/type = "method"
+tracks/1/path = NodePath("unhappy")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [ 0.0 ],
+"method": "play"
+} ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Sprite:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0.1, 0.8 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
 
 [node name="Client" type="TextureButton"]
-margin_top = -479.0
+margin_top = -542.0
 margin_right = 224.0
-margin_bottom = -3.0
+margin_bottom = -66.0
 grow_horizontal = 0
 grow_vertical = 0
 rect_pivot_offset = Vector2( -532, 148 )
@@ -15,3 +122,29 @@ size_flags_vertical = 8
 texture_normal = ExtResource( 3 )
 stretch_mode = 2
 script = ExtResource( 2 )
+
+[node name="happy" type="AudioStreamPlayer2D" parent="."]
+position = Vector2( 117, 46 )
+stream = SubResource( 1 )
+bus = "SFX"
+
+[node name="unhappy" type="AudioStreamPlayer2D" parent="."]
+position = Vector2( 114, 50 )
+stream = SubResource( 2 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/RESET = SubResource( 3 )
+anims/happy = SubResource( 4 )
+anims/unhappy = SubResource( 5 )
+
+[node name="Sprite" type="Sprite" parent="."]
+visible = false
+position = Vector2( 160, 18 )
+scale = Vector2( 0.675758, 0.716783 )
+texture = ExtResource( 5 )
+
+[node name="Sprite2" type="Sprite" parent="."]
+visible = false
+position = Vector2( 189, 24 )
+scale = Vector2( 0.397674, 0.395455 )
+texture = ExtResource( 6 )

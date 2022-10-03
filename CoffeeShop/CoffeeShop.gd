@@ -19,6 +19,7 @@ func _on_cup_given_to_client(client) -> void:
 		Global.increase_succeed_orders()
 	else:
 		Global.increase_failed_orders()
+	yield(client, "reaction_ended")
 	$ClientsWaitingQueue.remove_client(client)
 	client.queue_free()
 	$AnimationPlayer.play("MoveCameraToCups")
