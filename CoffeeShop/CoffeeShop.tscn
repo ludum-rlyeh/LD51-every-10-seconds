@@ -433,6 +433,7 @@ bus = "SFX"
 [connection signal="client_selected" from="ClientsWaitingQueue" to="." method="_on_cup_given_to_client"]
 [connection signal="client_is_waiting" from="ClientsOrderingQueue" to="ClientsWaitingQueue" method="_on_new_client_waiting"]
 [connection signal="new_client" from="ClientsOrderingQueue" to="CupsOrders" method="_on_ClientsOrderingQueue_new_client"]
+[connection signal="client_picked" from="CupsOrders" to="." method="_on_CupsOrders_client_picked"]
 [connection signal="client_picked" from="CupsOrders" to="ClientsOrderingQueue" method="_on_client_picked"]
 [connection signal="preparation_started" from="CupsOrders" to="." method="_on_preparation_started"]
 [connection signal="preparation_started" from="CupsOrders" to="ClientsOrderingQueue" method="_on_command_prepared"]

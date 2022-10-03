@@ -36,21 +36,23 @@ func _on_LoopTimer_time_out() -> void:
 	$AnimationPlayer.play("MoveCameraToManager")
 	Global.emit_signal("loop_time_out")
 
-
 func _on_return_pressed():
 	$AnimationPlayer.play("FromManagerToPreparation")
 	$CoffeeMachine/Next.visible = $CoffeeMachine/CupOpened.visible
-
 
 func _on_OutDoor_pressed():
 	# TODO: Stop everythings
 	# TODO: Animation
 	Global.emit_signal("go_out")
 
-
 func _on_toPreparation_pressed():
 	$AnimationPlayer.play("MoveCameraToPreparation")
 
-
 func _on_toCups_pressed():
 	$AnimationPlayer.play("MoveCameraToCups")
+	$CupsOrders/toPreparation.show()
+	if $CupsOrders/CupCommand and $CupsOrders/CupCommand.visible:
+		$CupsOrders/toPreparation.hide()
+
+func _on_CupsOrders_client_picked(client) -> void:
+	$CupsOrders/toPreparation.hide()
