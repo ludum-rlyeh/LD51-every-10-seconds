@@ -54,7 +54,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0, 0.2 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
-"values": [ Vector2( 1572, -41 ), Vector2( 512, 233 ) ]
+"values": [ Vector2( 1560, -41 ), Vector2( 512, 233 ) ]
 }
 tracks/1/type = "method"
 tracks/1/path = NodePath("Transition")
@@ -98,7 +98,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0, 0.2 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
-"values": [ Vector2( 512, 233 ), Vector2( 513, -197 ) ]
+"values": [ Vector2( 512, 233 ), Vector2( 513, -265 ) ]
 }
 tracks/1/type = "method"
 tracks/1/path = NodePath("Transition")
@@ -142,7 +142,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0, 0.2 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
-"values": [ Vector2( 513, -66 ), Vector2( -445, -33 ) ]
+"values": [ Vector2( 513, -66 ), Vector2( -499, 69 ) ]
 }
 tracks/1/type = "method"
 tracks/1/path = NodePath("Transition")
@@ -172,7 +172,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0, 0.2 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
-"values": [ Vector2( 512, 301 ), Vector2( 1572, -41 ) ]
+"values": [ Vector2( 512, 233 ), Vector2( 1572, -41 ) ]
 }
 tracks/1/type = "method"
 tracks/1/path = NodePath("Transition")
@@ -202,7 +202,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0, 0.2 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
-"values": [ Vector2( -516, -2 ), Vector2( 512, 233 ) ]
+"values": [ Vector2( -499, 69 ), Vector2( 512, 233 ) ]
 }
 tracks/1/type = "method"
 tracks/1/path = NodePath("Transition")
@@ -383,6 +383,7 @@ text = "<--"
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2( -516, -2 )
 current = true
+zoom = Vector2( 1.1, 1.1 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/FromManagerToPreparation = SubResource( 10 )

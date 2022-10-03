@@ -902,10 +902,10 @@ margin_right = 345.0
 margin_bottom = 529.0
 
 [node name="ReceipesLittle" parent="." instance=ExtResource( 27 )]
-margin_left = -662.0
-margin_top = 576.0
-margin_right = -1069.0
-margin_bottom = 965.0
+margin_left = -664.0
+margin_top = 546.0
+margin_right = -995.0
+margin_bottom = 1002.0
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="ReceipesLittle"]
 stream = SubResource( 23 )
@@ -914,9 +914,9 @@ bus = "SFX"
 [node name="ReceipesBig" parent="." instance=ExtResource( 27 )]
 visible = false
 margin_left = -48.0
-margin_top = -436.0
-margin_right = -734.0
-margin_bottom = -558.0
+margin_top = -360.0
+margin_right = -379.0
+margin_bottom = 96.0
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="ReceipesBig"]
 stream = SubResource( 24 )

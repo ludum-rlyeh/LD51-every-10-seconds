@@ -1,5 +1,8 @@
 extends Node2D
 
+func _ready():
+	$Camera2D.position = Vector2(-495, 69)
+
 func _on_ClientNext_pressed() -> void:
 	$AnimationPlayer.play("MoveCameraToClient")
 	$CoffeeMachine/Next.hide()
