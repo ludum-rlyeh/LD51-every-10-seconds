@@ -20,9 +20,9 @@ _global_script_class_icons={
 
 [application]
 
-config/name="Ld 51 -every- 10 -seconds"
+config/name="LD51-Galactic-Mooses-Coffee"
 run/main_scene="res://Main.tscn"
-config/icon="res://icon.png"
+config/icon="res://Common/logo.png"
 
 [autoload]
 
@@ -30,6 +30,8 @@ Global="*res://Global.gd"
 
 [display]
 
+window/size/width=948
+window/size/height=533
 window/size/resizable=false
 
 [gui]
