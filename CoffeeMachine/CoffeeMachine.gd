@@ -225,10 +225,12 @@ func _on_ChocolateSirop_pressed() -> void:
 		$CupOpened.add_chocolate_sirop(1)
 
 func _on_ReceipesLittle_pressed() -> void:
+	$ReceipesLittle/AudioStreamPlayer.play()
 	$ReceipesBig.show()
 	$ReceipesLittle.hide()
 
 func _on_ReceipesBig_pressed() -> void:
+	$ReceipesBig/AudioStreamPlayer.play()
 	$ReceipesBig.hide()
 	$ReceipesLittle.show()
 

@@ -1,0 +1,23 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/throwcoffee.wav-3c373e7432e56697fa9cce1da953ab8a.sample"
+
+[deps]
+
+source_file="res://Manager/throwcoffee.wav"
+dest_files=[ "res://.import/throwcoffee.wav-3c373e7432e56697fa9cce1da953ab8a.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

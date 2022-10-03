@@ -18,6 +18,7 @@ func new_client():
 
 func _on_client_picked(client):
 	remove_child(client)
+	$AudioStreamPlayer.play()
 	emit_signal("client_is_waiting", client)
 	
 

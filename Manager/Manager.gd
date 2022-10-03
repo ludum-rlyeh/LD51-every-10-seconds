@@ -12,7 +12,9 @@ func on_timer_out():
 
 func _on_Sprite_pressed():
 	$Sprite/CoffeeMark.visible = true
+	$Sprite/AudioStreamPlayer2D.play()
+	yield($Sprite/AudioStreamPlayer2D, "finished")
 	$AnimationPlayer.play("angry")
-	$AudioStreamPlayer.play()
-	# TODO: yield animation ending
-	# TODO: connect to go outside
+	yield($AnimationPlayer, "animation_finished")
+	# TODO: animation go out
+	Global.emit_signal("go_out")

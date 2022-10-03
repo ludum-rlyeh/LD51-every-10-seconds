@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=2]
+[gd_scene load_steps=32 format=2]
 
 [ext_resource path="res://CupsOrders/CupsOrders.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Clients/Clients.tscn" type="PackedScene" id=2]
@@ -17,6 +17,11 @@
 [ext_resource path="res://CoffeeShop/exit_normal.svg" type="Texture" id=15]
 [ext_resource path="res://CoffeeShop/exit_hover.svg" type="Texture" id=16]
 [ext_resource path="res://CoffeeShop/Let_the_dog_run_-_Stefan_Kartenberg.mp3" type="AudioStream" id=17]
+[ext_resource path="res://CoffeeShop/woosh.wav" type="AudioStream" id=18]
+[ext_resource path="res://CoffeeMachine/take.wav" type="AudioStream" id=19]
+
+[sub_resource type="AudioStreamRandomPitch" id=12]
+audio_stream = ExtResource( 19 )
 
 [sub_resource type="DynamicFont" id=6]
 size = 50
@@ -49,6 +54,20 @@ tracks/0/keys = {
 "update": 0,
 "values": [ Vector2( 1572, -41 ), Vector2( 512, 233 ) ]
 }
+tracks/1/type = "method"
+tracks/1/path = NodePath("Transition")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [ 0.0 ],
+"method": "play"
+} ]
+}
 
 [sub_resource type="Animation" id=1]
 resource_name = "MoveCameraToClient"
@@ -64,6 +83,20 @@ tracks/0/keys = {
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
 "values": [ Vector2( 512, 233 ), Vector2( 513, -197 ) ]
+}
+tracks/1/type = "method"
+tracks/1/path = NodePath("Transition")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [ 0.0 ],
+"method": "play"
+} ]
 }
 
 [sub_resource type="Animation" id=5]
@@ -81,6 +114,20 @@ tracks/0/keys = {
 "update": 0,
 "values": [ Vector2( 513, -66 ), Vector2( -445, -33 ) ]
 }
+tracks/1/type = "method"
+tracks/1/path = NodePath("Transition")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [ 0.0 ],
+"method": "play"
+} ]
+}
 
 [sub_resource type="Animation" id=2]
 resource_name = "MoveCameraToManager"
@@ -97,6 +144,20 @@ tracks/0/keys = {
 "update": 0,
 "values": [ Vector2( 512, 301 ), Vector2( 1572, -41 ) ]
 }
+tracks/1/type = "method"
+tracks/1/path = NodePath("Transition")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [ 0.0 ],
+"method": "play"
+} ]
+}
 
 [sub_resource type="Animation" id=3]
 resource_name = "MoveCameraToPreparation"
@@ -112,6 +173,20 @@ tracks/0/keys = {
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
 "values": [ Vector2( -516, -2 ), Vector2( 512, 233 ) ]
+}
+tracks/1/type = "method"
+tracks/1/path = NodePath("Transition")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [ 0.0 ],
+"method": "play"
+} ]
 }
 
 [sub_resource type="Animation" id=4]
@@ -133,6 +208,9 @@ tracks/0/keys = {
 size = 80
 use_filter = true
 font_data = ExtResource( 14 )
+
+[sub_resource type="AudioStreamRandomPitch" id=11]
+audio_stream = ExtResource( 18 )
 
 [node name="CoffeeShop" type="Node2D"]
 script = ExtResource( 5 )
@@ -162,6 +240,10 @@ margin_right = -63.0
 margin_bottom = 112.0
 grow_vertical = 0
 script = ExtResource( 11 )
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="ClientsOrderingQueue"]
+stream = SubResource( 12 )
+bus = "SFX"
 
 [node name="Bar" type="Sprite" parent="."]
 position = Vector2( 185, 232 )
@@ -276,10 +358,15 @@ custom_colors/font_color = Color( 0, 0, 0, 1 )
 custom_fonts/font = SubResource( 9 )
 text = "0"
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+[node name="BgMusic" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 17 )
 autoplay = true
 bus = "BG"
+
+[node name="Transition" type="AudioStreamPlayer" parent="."]
+stream = SubResource( 11 )
+volume_db = 10.0
+bus = "SFX"
 
 [connection signal="pressed" from="OutDoor" to="." method="_on_OutDoor_pressed"]
 [connection signal="client_selected" from="ClientsWaitingQueue" to="." method="_on_cup_given_to_client"]
