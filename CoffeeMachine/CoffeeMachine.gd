@@ -206,6 +206,9 @@ func _on_CupOpened_pressed() -> void:
 		return
 	$MilkMachine.cup = null
 	$CoffeeMilkMachine.cup = null
+	$Sirops/CaramelSirop.cup = null
+	$Sirops/ChocolateSirop.cup = null
+	$Sirops/NutsSirop.cup = null
 	$CupOpened.rect_global_position = $Hand.global_position
 	get_tree().call_group("CupOpenedGhost", "show")
 
@@ -216,12 +219,12 @@ func _on_CaramelSirop_pressed() -> void:
 
 func _on_NutsSirop_pressed() -> void:
 	$AnimationPlayer.play("NutsShot")
-	if $Sirops/CaramelSirop.cup:
+	if $Sirops/NutsSirop.cup:
 		$CupOpened.add_nut_sirop(1)
 
 func _on_ChocolateSirop_pressed() -> void:
 	$AnimationPlayer.play("ChocolateShot")
-	if $Sirops/CaramelSirop.cup:
+	if $Sirops/ChocolateSirop.cup:
 		$CupOpened.add_chocolate_sirop(1)
 
 func _on_ReceipesLittle_pressed() -> void:
