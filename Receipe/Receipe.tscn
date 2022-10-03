@@ -17,12 +17,12 @@ func _ready():
 var content = \\
 \"== Ristretto\\n\" + \\
 \"25 ml coffee\\n\" + \\
-\"== Expresso\\n\" + \\
+\"== Espresso\\n\" + \\
 \"40 ml coffee\\n\" + \\
 \"== Lungo\\n\" + \\
 \"110 ml coffee\\n\" + \\
 \"== Macchiato\\n\" + \\
-\"1 espressio\\n\" + \\
+\"1 espresso\\n\" + \\
 \"1 shot of nut sirop\\n\" + \\
 \"== Caramel macchiato\\n\" + \\
 \"1 espresso\\n\" + \\
@@ -30,12 +30,13 @@ var content = \\
 \"1 shot of caramel sirop\\n\" + \\
 \"== Mocha\\n\" + \\
 \"1 espresso\\n\" + \\
-\"1 shot of chocolate sirop\\n\" + \\
 \"220 ml hot milk\\n\" + \\
+\"1 shot of chocolate sirop\\n\" + \\
 \"== Flat milk\\n\" + \\
 \"1 ristretto\\n\" + \\
 \"250 ml hot milk\\n\" + \\
 \"== Viennese chocolate coffee\\n\" + \\
+\"1 espresso\\n\" + \\
 \"250 ml cold milk\\n\" + \\
 \"1 shot of chocolate sirop\\n\"
 "
